@@ -1,6 +1,6 @@
 # Сканер вин «Своё вино»
 
-Исследование пяти функций после распознавания и готовое ТЗ: [docs/FEATURE_ROADMAP.md](docs/FEATURE_ROADMAP.md).
+Итоговое продуктовое решение и ТЗ на «Паспорт вкуса»: [docs/PRODUCT_DECISION.md](docs/PRODUCT_DECISION.md). Черновое сравнение пяти направлений сохранено в [docs/FEATURE_ROADMAP.md](docs/FEATURE_ROADMAP.md).
 
 ## Проверенный результат — 28 сентября 2026
 
