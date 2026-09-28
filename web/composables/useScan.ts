@@ -11,5 +11,11 @@ export const useScan = () => useState<ScanState | null>('scan', () => null)
 export async function searchByPhoto(file: File): Promise<SearchResult> {
   const fd = new FormData()
   fd.append('image', file)
-  return await $fetch<SearchResult>('/v1/search', { method: 'POST', body: fd })
+  return await $fetch<SearchResult>('/v1/search', { method: 'POST', body: fd, timeout: 15000, retry: 0 })
+}
+
+export function clearScan() {
+  const scan = useScan()
+  if (scan.value?.photoUrl && import.meta.client) URL.revokeObjectURL(scan.value.photoUrl)
+  scan.value = null
 }

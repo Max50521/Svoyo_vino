@@ -1,0 +1,15 @@
+
+> test
+> vitest run
+
+
+ RUN  v5.0.1 C:/Users/Vlad1/OneDrive/Рабочий стол/ПАРАППА/Винище/svoe-vino-scanner/web
+
+(node:14964) [DEP0155] DeprecationWarning: Use of deprecated trailing slash pattern mapping "./" in the "exports" field module resolution of the package at C:\Users\Vlad1\OneDrive\Рабочий стол\ПАРАППА\Винище\svoe-vino-scanner\web\node_modules\@vue\shared\package.json imported from C:\Users\Vlad1\OneDrive\Рабочий стол\ПАРАППА\Винище\svoe-vino-scanner\web\node_modules\@nuxt\nitro-server\dist\runtime\templates\error-500.mjs. Mapping specifiers ending in "/" is no longer supported.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  21 passed (21)
+   Start at  13:54:36
+   Duration  9.52s (tests 97%, import 2%, transform 1%)
+

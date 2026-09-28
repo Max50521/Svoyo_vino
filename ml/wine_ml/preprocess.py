@@ -9,12 +9,20 @@ Padding (not center-crop) keeps the whole label in frame.
 from __future__ import annotations
 
 import io
+import os
+import warnings
 
 from PIL import Image, ImageChops, ImageOps, UnidentifiedImageError
 
 MAX_SIDE = 1024
 WHITE = (255, 255, 255)
 TRIM_THRESHOLD = 16  # max channel difference from white still treated as background
+MAX_IMAGE_PIXELS = int(os.getenv("MAX_IMAGE_PIXELS", "40000000"))
+PREPROCESS_VERSION = "rgb-white-square-v1"
+
+
+class ImageTooLarge(ValueError):
+    pass
 
 try:  # optional HEIC support (iPhone photos)
     from pillow_heif import register_heif_opener  # type: ignore
@@ -26,8 +34,16 @@ except ImportError:  # pragma: no cover
 
 def load_image(data: bytes) -> Image.Image:
     try:
-        im = Image.open(io.BytesIO(data))
-        im.load()
+        with warnings.catch_warnings():
+            warnings.simplefilter("error", Image.DecompressionBombWarning)
+            im = Image.open(io.BytesIO(data))
+            if im.width * im.height > MAX_IMAGE_PIXELS:
+                raise ImageTooLarge("image pixel limit exceeded")
+            im.load()
+    except (Image.DecompressionBombError, Image.DecompressionBombWarning) as e:
+        raise ImageTooLarge("image pixel limit exceeded") from e
+    except ImageTooLarge:
+        raise
     except (UnidentifiedImageError, OSError, ValueError) as e:
         raise ValueError("invalid image") from e
     return im

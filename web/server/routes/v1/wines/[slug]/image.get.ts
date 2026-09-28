@@ -1,4 +1,4 @@
-import { createReadStream, existsSync } from 'node:fs'
+import { createReadStream, existsSync, openSync, readSync, closeSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 // Catalog reference photo. build_catalog.py stores it as <slug><ext>, so no DB lookup is needed.
@@ -13,7 +13,10 @@ export default defineEventHandler((event) => {
   for (const [ext, type] of TYPES) {
     const path = resolve(appConfig.catalogImagesDir, slug + ext)
     if (existsSync(path)) {
-      setResponseHeaders(event, { 'Content-Type': type, 'Cache-Control': 'public, max-age=86400' })
+      const fd = openSync(path, 'r')
+      const header = Buffer.alloc(16)
+      try { readSync(fd, header, 0, 16, 0) } finally { closeSync(fd) }
+      setResponseHeaders(event, { 'Content-Type': detectImageType(header) ?? type, 'Cache-Control': 'public, max-age=86400' })
       return sendStream(event, createReadStream(path))
     }
   }

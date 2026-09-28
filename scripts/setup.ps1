@@ -10,11 +10,22 @@ Needs: Python 3.11+, Node 20+, Docker Desktop, 7-Zip (only for -DatasetZip).
 param(
   [string]$DatasetZip = "",
   [switch]$Cpu,
-  [string]$Model = "google/siglip2-so400m-patch14-384"
+  [string]$Model = ""
 )
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
+Get-Content .env | ForEach-Object {
+  if ($_ -match '^\s*([A-Z_][A-Z_0-9]*)\s*=\s*(.*?)\s*$') {
+    [Environment]::SetEnvironmentVariable($Matches[1], ($Matches[2] -replace '\s+#.*$','').Trim('"'), 'Process')
+  }
+}
+if ($Model) {
+  $env:MODEL_NAME=$Model
+  (Get-Content .env) -replace '^MODEL_NAME=.*$', "MODEL_NAME=$Model" | Set-Content .env -Encoding utf8
+} else { $Model=$env:MODEL_NAME }
+
 
 function Step($msg) { Write-Host "`n==> $msg" -ForegroundColor Cyan }
 function Check() { if ($LASTEXITCODE -ne 0) { throw "command failed with exit code $LASTEXITCODE" } }

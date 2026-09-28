@@ -1,0 +1,97 @@
+[
+  {
+    "case": "ML process stopped",
+    "endpoint": "/ready",
+    "http": 503,
+    "body": {
+      "ready": false,
+      "status": "degraded",
+      "engine": "vector",
+      "model": "google/siglip2-so400m-patch14-384",
+      "db": {
+        "ok": true,
+        "wines": 2076,
+        "indexed": 2076,
+        "full": 2076,
+        "label_mid": 2076,
+        "label_low": 2076,
+        "min_dim": 1152,
+        "max_dim": 1152
+      },
+      "ml": {
+        "ok": false
+      }
+    }
+  },
+  {
+    "case": "ML process stopped",
+    "endpoint": "/health",
+    "http": 200,
+    "body": {
+      "ready": false,
+      "status": "degraded",
+      "engine": "vector",
+      "model": "google/siglip2-so400m-patch14-384",
+      "db": {
+        "ok": true,
+        "wines": 2076,
+        "indexed": 2076,
+        "full": 2076,
+        "label_mid": 2076,
+        "label_low": 2076,
+        "min_dim": 1152,
+        "max_dim": 1152
+      },
+      "ml": {
+        "ok": false
+      }
+    }
+  },
+  {
+    "case": "ML process stopped",
+    "endpoint": "/v1/search",
+    "http": 503,
+    "body": {
+      "error": "Сервис временно недоступен. Попробуйте ещё раз."
+    }
+  },
+  {
+    "case": "DB process stopped",
+    "endpoint": "/ready",
+    "http": 503,
+    "body": {
+      "ready": false,
+      "status": "degraded",
+      "engine": "vector",
+      "model": "google/siglip2-so400m-patch14-384",
+      "db": {
+        "ok": false
+      },
+      "ml": {
+        "status": "ok",
+        "model": "google/siglip2-so400m-patch14-384",
+        "device": "cuda",
+        "dim": 1152,
+        "ocr": "easyocr",
+        "ocr_error": null,
+        "ok": true
+      }
+    }
+  },
+  {
+    "case": "DB process stopped",
+    "endpoint": "/v1/wines/does-not-exist",
+    "http": 503,
+    "body": {
+      "error": "Сервис временно недоступен. Попробуйте ещё раз."
+    }
+  },
+  {
+    "case": "DB process stopped",
+    "endpoint": "/v1/search",
+    "http": 503,
+    "body": {
+      "error": "Сервис временно недоступен. Попробуйте ещё раз."
+    }
+  }
+]

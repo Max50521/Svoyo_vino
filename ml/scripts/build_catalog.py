@@ -11,6 +11,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
+import os
 import csv
 import json
 import shutil
@@ -29,6 +31,11 @@ def main() -> None:
         "data/raw/strapi/prod-svoe-vino-strapi/prod-svoe-vino/strapi/uploads"))
     ap.add_argument("--out", type=Path, default=Path("data/catalog"))
     args = ap.parse_args()
+    # Windows may enumerate files whose full paths exceed MAX_PATH, but is_file/open
+    # silently fail without an extended-length path. Do not drop those catalog rows.
+    if os.name == "nt":
+        args.uploads = Path("\\\\?\\" + str(args.uploads.resolve()))
+        args.out = Path("\\\\?\\" + str(args.out.resolve()))
 
     with args.csv.open(encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
@@ -53,6 +60,7 @@ def main() -> None:
             shutil.copy2(src, dst)
         w["image_file"] = dst.name
         w["source_upload"] = src.name
+        w["image_sha256"] = hashlib.sha256(src.read_bytes()).hexdigest()
         kept.append(w)
 
     with (args.out / "wines.jsonl").open("w", encoding="utf-8") as f:

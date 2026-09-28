@@ -1,0 +1,176 @@
+final 1/100 HTTP=200 ms=669.3 top1=False status=not_found
+final 2/100 HTTP=200 ms=743.6 top1=False status=uncertain
+final 3/100 HTTP=200 ms=855.7 top1=False status=not_found
+final 4/100 HTTP=200 ms=671.4 top1=True status=uncertain
+final 5/100 HTTP=200 ms=734.9 top1=False status=not_found
+final 6/100 HTTP=200 ms=759.0 top1=False status=uncertain
+final 7/100 HTTP=200 ms=728.8 top1=False status=uncertain
+final 8/100 HTTP=200 ms=659.6 top1=True status=confident
+final 9/100 HTTP=200 ms=612.9 top1=True status=uncertain
+final 10/100 HTTP=200 ms=695.3 top1=True status=confident
+final 11/100 HTTP=200 ms=676.5 top1=True status=uncertain
+final 12/100 HTTP=200 ms=642.3 top1=True status=not_found
+final 13/100 HTTP=200 ms=669.7 top1=False status=uncertain
+final 14/100 HTTP=200 ms=892.3 top1=True status=uncertain
+final 15/100 HTTP=200 ms=669.4 top1=False status=not_found
+final 16/100 HTTP=200 ms=657.0 top1=True status=confident
+final 17/100 HTTP=200 ms=763.9 top1=True status=confident
+final 18/100 HTTP=200 ms=706.1 top1=False status=not_found
+final 19/100 HTTP=200 ms=640.3 top1=True status=confident
+final 20/100 HTTP=200 ms=687.5 top1=True status=uncertain
+final 21/100 HTTP=200 ms=677.7 top1=True status=confident
+final 22/100 HTTP=200 ms=664.4 top1=True status=confident
+final 23/100 HTTP=200 ms=608.9 top1=True status=confident
+final 24/100 HTTP=200 ms=701.8 top1=True status=confident
+final 25/100 HTTP=200 ms=658.8 top1=False status=not_found
+final 26/100 HTTP=200 ms=639.7 top1=True status=confident
+final 27/100 HTTP=200 ms=613.3 top1=True status=uncertain
+final 28/100 HTTP=200 ms=612.4 top1=True status=confident
+final 29/100 HTTP=200 ms=549.4 top1=True status=confident
+final 30/100 HTTP=200 ms=751.9 top1=False status=not_found
+final 31/100 HTTP=200 ms=674.6 top1=True status=uncertain
+final 32/100 HTTP=200 ms=823.4 top1=True status=uncertain
+final 33/100 HTTP=200 ms=627.7 top1=False status=not_found
+final 34/100 HTTP=200 ms=641.5 top1=True status=confident
+final 35/100 HTTP=200 ms=924.0 top1=False status=confident
+final 36/100 HTTP=200 ms=655.8 top1=True status=confident
+final 37/100 HTTP=200 ms=615.2 top1=False status=confident
+final 38/100 HTTP=200 ms=956.9 top1=False status=not_found
+final 39/100 HTTP=200 ms=668.9 top1=True status=confident
+final 40/100 HTTP=200 ms=757.4 top1=True status=uncertain
+final 41/100 HTTP=200 ms=874.5 top1=True status=uncertain
+final 42/100 HTTP=200 ms=728.2 top1=False status=not_found
+final 43/100 HTTP=200 ms=764.7 top1=False status=uncertain
+final 44/100 HTTP=200 ms=673.9 top1=False status=uncertain
+final 45/100 HTTP=200 ms=619.1 top1=True status=uncertain
+final 46/100 HTTP=200 ms=712.5 top1=False status=not_found
+final 47/100 HTTP=200 ms=688.9 top1=True status=uncertain
+final 48/100 HTTP=200 ms=768.3 top1=False status=uncertain
+final 49/100 HTTP=200 ms=637.4 top1=False status=not_found
+final 50/100 HTTP=200 ms=965.0 top1=True status=confident
+final 51/100 HTTP=200 ms=665.6 top1=True status=uncertain
+final 52/100 HTTP=200 ms=763.5 top1=True status=uncertain
+final 53/100 HTTP=200 ms=661.2 top1=True status=confident
+final 54/100 HTTP=200 ms=666.9 top1=True status=uncertain
+final 55/100 HTTP=200 ms=843.6 top1=True status=uncertain
+final 56/100 HTTP=200 ms=734.3 top1=True status=confident
+final 57/100 HTTP=200 ms=605.7 top1=True status=confident
+final 58/100 HTTP=200 ms=623.4 top1=False status=uncertain
+final 59/100 HTTP=200 ms=745.5 top1=True status=uncertain
+final 60/100 HTTP=200 ms=683.7 top1=True status=uncertain
+final 61/100 HTTP=200 ms=685.6 top1=True status=confident
+final 62/100 HTTP=200 ms=652.3 top1=False status=not_found
+final 63/100 HTTP=200 ms=569.0 top1=True status=confident
+final 64/100 HTTP=200 ms=828.3 top1=True status=confident
+final 65/100 HTTP=200 ms=710.9 top1=True status=uncertain
+final 66/100 HTTP=200 ms=741.2 top1=True status=confident
+final 67/100 HTTP=200 ms=623.9 top1=False status=uncertain
+final 68/100 HTTP=200 ms=608.2 top1=False status=not_found
+final 69/100 HTTP=200 ms=684.1 top1=True status=uncertain
+final 70/100 HTTP=200 ms=804.4 top1=True status=confident
+final 71/100 HTTP=200 ms=710.3 top1=False status=not_found
+final 72/100 HTTP=200 ms=571.0 top1=False status=uncertain
+final 73/100 HTTP=200 ms=648.8 top1=False status=not_found
+final 74/100 HTTP=200 ms=700.4 top1=False status=not_found
+final 75/100 HTTP=200 ms=593.4 top1=True status=confident
+final 76/100 HTTP=200 ms=677.1 top1=True status=not_found
+final 77/100 HTTP=200 ms=635.7 top1=False status=not_found
+final 78/100 HTTP=200 ms=620.7 top1=True status=not_found
+final 79/100 HTTP=200 ms=766.2 top1=False status=confident
+final 80/100 HTTP=200 ms=776.8 top1=True status=confident
+final 81/100 HTTP=200 ms=708.9 top1=True status=uncertain
+final 82/100 HTTP=200 ms=774.9 top1=True status=confident
+final 83/100 HTTP=200 ms=676.7 top1=False status=uncertain
+final 84/100 HTTP=200 ms=821.5 top1=False status=uncertain
+final 85/100 HTTP=200 ms=651.9 top1=True status=uncertain
+final 86/100 HTTP=200 ms=725.2 top1=False status=not_found
+final 87/100 HTTP=200 ms=593.9 top1=True status=confident
+final 88/100 HTTP=200 ms=694.5 top1=False status=uncertain
+final 89/100 HTTP=200 ms=859.4 top1=False status=uncertain
+final 90/100 HTTP=200 ms=895.1 top1=False status=uncertain
+final 91/100 HTTP=200 ms=788.6 top1=True status=confident
+final 92/100 HTTP=200 ms=868.3 top1=True status=confident
+final 93/100 HTTP=200 ms=633.9 top1=False status=uncertain
+final 94/100 HTTP=200 ms=703.0 top1=True status=confident
+final 95/100 HTTP=200 ms=702.2 top1=False status=uncertain
+final 96/100 HTTP=200 ms=729.3 top1=True status=not_found
+final 97/100 HTTP=200 ms=653.9 top1=True status=confident
+final 98/100 HTTP=200 ms=731.7 top1=True status=confident
+final 99/100 HTTP=200 ms=610.9 top1=False status=not_found
+final 100/100 HTTP=200 ms=594.3 top1=False status=not_found
+{
+  "tag": "final",
+  "label_provenance": "repository labels; not independently verified organizer ground truth",
+  "readiness": {
+    "ready": true,
+    "status": "ok",
+    "engine": "vector",
+    "model": "google/siglip2-so400m-patch14-384",
+    "db": {
+      "ok": true,
+      "wines": 2080,
+      "indexed": 2080,
+      "full": 2080,
+      "label_mid": 2080,
+      "label_low": 2080,
+      "min_dim": 1152,
+      "max_dim": 1152
+    },
+    "ml": {
+      "status": "ok",
+      "model": "google/siglip2-so400m-patch14-384",
+      "device": "cuda",
+      "dim": 1152,
+      "ocr": "easyocr",
+      "ocr_error": null,
+      "ok": true
+    }
+  },
+  "n": 100,
+  "http": {
+    "200": 100
+  },
+  "known_all": {
+    "n": 64,
+    "top1": 59,
+    "top5": 64,
+    "top1_pct": 92.19,
+    "top5_pct": 100.0
+  },
+  "known_indexed": {
+    "n": 64,
+    "top1": 59,
+    "top5": 64,
+    "top1_pct": 92.19,
+    "top5_pct": 100.0
+  },
+  "ambiguous_excluded": 3,
+  "unknown": {
+    "n": 33,
+    "correct_not_found": 19
+  },
+  "known_false_not_found": 5,
+  "confident_known": {
+    "n": 34,
+    "top1": 33,
+    "top5": 34,
+    "top1_pct": 97.06,
+    "top5_pct": 100.0
+  },
+  "correct_ui_decisions": 74,
+  "ui_decision_n": 97,
+  "status": {
+    "not_found": 25,
+    "uncertain": 39,
+    "confident": 36
+  },
+  "ocr_fallback": {
+    "None": 100
+  },
+  "latency_ms": {
+    "p50": 683.9000000000001,
+    "p95": 874.5,
+    "max": 965.0,
+    "mean": 704.1
+  }
+}

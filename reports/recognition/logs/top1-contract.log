@@ -1,0 +1,143 @@
+[
+  {
+    "test": "ready",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"ready\":true,\"status\":\"ok\",\"engine\":\"vector\",\"model\":\"google/siglip2-so400m-patch14-384\",\"db\":{\"ok\":true,\"wines\":2080,\"indexed\":2080,\"full\":2080,\"label_mid\":2080,\"label_low\":2080,\"min_dim\":1152,\"max_dim\":1152},\"ml\":{\"status\":\"ok\",\"model\":\"google/siglip2-so400m-patch14-384\",\"device\":\"cuda\",\"dim\":1152,\"ocr\":\"easyocr\",\"ocr_error\":null,\"ok\":true}}"
+  },
+  {
+    "test": "missing image",
+    "expected": 400,
+    "status": 400,
+    "pass": true,
+    "body": "{\"error\":\"missing multipart field \\\"image\\\"\"}"
+  },
+  {
+    "test": "invalid type",
+    "expected": 400,
+    "status": 400,
+    "pass": true,
+    "body": "{\"error\":\"unsupported or corrupted image\"}"
+  },
+  {
+    "test": "truncated PNG",
+    "expected": 400,
+    "status": 400,
+    "pass": true,
+    "body": "{\"error\":\"unsupported or corrupted image\"}"
+  },
+  {
+    "test": "empty image",
+    "expected": 400,
+    "status": 400,
+    "pass": true,
+    "body": "{\"error\":\"missing multipart field \\\"image\\\"\"}"
+  },
+  {
+    "test": "over 15MiB",
+    "expected": 413,
+    "status": 413,
+    "pass": true,
+    "body": "{\"error\":\"image too large\"}"
+  },
+  {
+    "test": "pixel bomb",
+    "expected": 413,
+    "status": 413,
+    "pass": true,
+    "body": "{\"error\":\"image too large\"}"
+  },
+  {
+    "test": "valid PNG misleading name",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"top1\":{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visual\":0.5937,\"image_url\":\"/v1/wines/vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14/image\"},\"top5\":[{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visua"
+  },
+  {
+    "test": "valid JPEG misleading name",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"top1\":{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5931,\"visual\":0.5931,\"image_url\":\"/v1/wines/vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14/image\"},\"top5\":[{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5931,\"visua"
+  },
+  {
+    "test": "valid WEBP misleading name",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"top1\":{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5924,\"visual\":0.5924,\"image_url\":\"/v1/wines/vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14/image\"},\"top5\":[{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5924,\"visua"
+  },
+  {
+    "test": "valid GIF misleading name",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"top1\":{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visual\":0.5937,\"image_url\":\"/v1/wines/vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14/image\"},\"top5\":[{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visua"
+  },
+  {
+    "test": "valid BMP misleading name",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"top1\":{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visual\":0.5937,\"image_url\":\"/v1/wines/vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14/image\"},\"top5\":[{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\",\"name\":\"Траминер\",\"winery\":\"ВайнКрафт\",\"score\":0.5937,\"visua"
+  },
+  {
+    "test": "missing wine",
+    "expected": 404,
+    "status": 404,
+    "pass": true,
+    "body": "{\"error\":\"wine \\\"does-not-exist\\\" not found\"}"
+  },
+  {
+    "test": "missing wine image",
+    "expected": 404,
+    "status": 404,
+    "pass": true,
+    "body": "{\"error\":\"image not found\"}"
+  },
+  {
+    "test": "wine card",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"slug\":\"a-gordienko-m-nikolaev-pino-nuar-krasnoe-suhoe-135\",\"name\":\"Пино Нуар\",\"category\":\"Красное\",\"color\":\"Рубиново-красный\",\"region\":\"Кубань\",\"grapes\":\"Пино Нуар\",\"description\":\"Вкус: Ягодно-фруктовый. С тонами пряных лесных ягод и летнего леса.\",\"winery\":\"А. Гордиенко & М. Николаев\",\"image_url\":\"/v1/wines/a-gordienko-m-nikolaev-pino-nuar-krasn"
+  },
+  {
+    "test": "wine photo",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "<image>"
+  },
+  {
+    "test": "similar",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "[{\"slug\":\"vaynkraft-pino-nuar-krasnoe-suhoe-13\",\"name\":\"Пино Нуар\",\"winery\":\"ВайнКрафт\",\"score\":0.8679,\"image_url\":\"/v1/wines/vaynkraft-pino-nuar-krasnoe-suhoe-13/image\"},{\"slug\":\"a-gordienko-m-nikolaev-sira-nuvo-krasnoe-suhoe-115\",\"name\":\"Сира Нуво\",\"winery\":\"А. Гордиенко & М. Николаев\",\"score\":0.8463,\"image_url\":\"/v1/wines/a-gordienko-m-nikolaev-"
+  },
+  {
+    "test": "predict contract",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"slug\":\"vaynkraft-traminer-traminer-rozovyy-beloe-suhoe-14\"}"
+  },
+  {
+    "test": "chunked over limit",
+    "expected": 413,
+    "status": 413,
+    "pass": true,
+    "body": "{\"error\":\"image too large\"}"
+  },
+  {
+    "test": "recovery after invalid requests",
+    "expected": 200,
+    "status": 200,
+    "pass": true,
+    "body": "{\"ready\":true,\"status\":\"ok\",\"engine\":\"vector\",\"model\":\"google/siglip2-so400m-patch14-384\",\"db\":{\"ok\":true,\"wines\":2080,\"indexed\":2080,\"full\":2080,\"label_mid\":2080,\"label_low\":2080,\"min_dim\":1152,\"max_dim\":1152},\"ml\":{\"status\":\"ok\",\"model\":\"google/siglip2-so400m-patch14-384\",\"device\":\"cuda\",\"dim\":1152,\"ocr\":\"easyocr\",\"ocr_error\":null,\"ok\":true}}"
+  }
+]
+PASSED 20 / 20

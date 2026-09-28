@@ -1,0 +1,12 @@
+# Core versions used in the measured Windows run. Linux still requires a native acceptance run.
+transformers==5.17.0
+easyocr==1.7.2
+fastapi==0.141.1
+uvicorn==0.54.0
+numpy==2.5.2
+pillow==12.3.0
+pillow-heif==1.8.0
+psycopg==3.3.6
+pgvector==0.5.0
+python-dotenv==1.2.3
+python-multipart==0.0.32

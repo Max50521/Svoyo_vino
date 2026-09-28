@@ -7,11 +7,11 @@ ARG TORCH_INDEX=https://download.pytorch.org/whl/cu128
 ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 HF_HOME=/hf-cache
 
 WORKDIR /app
-RUN pip install torch --index-url ${TORCH_INDEX}
-COPY pyproject.toml ./
+RUN pip install torch==2.11.0 torchvision==0.26.0 --index-url ${TORCH_INDEX}
+COPY pyproject.toml constraints.txt ./
 COPY wine_ml ./wine_ml
 COPY scripts ./scripts
-RUN pip install . pillow-heif
+RUN pip install -c constraints.txt .
 
 EXPOSE 8001
 HEALTHCHECK --interval=10s --timeout=5s --start-period=600s --retries=5 \

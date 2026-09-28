@@ -1,0 +1,9 @@
+{
+  "n": 100,
+  "valid_slug": 100,
+  "known": 64,
+  "top1": 59,
+  "latency_p50_ms": 716.5,
+  "latency_p95_ms": 937,
+  "unchanged_organizer_script": true
+}

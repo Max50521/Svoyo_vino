@@ -29,6 +29,10 @@ services:
       DATABASE_URL: postgresql://wine:wine@db:5432/wine
       OCR_ENABLED: ${OCR_ENABLED:-1}
       OCR_PROVIDER: ${OCR_PROVIDER:-easyocr}
+      OCR_TIMEOUT_S: ${OCR_TIMEOUT_S:-3}
+      EASYOCR_MODULE_PATH: /app/data/easyocr
+      OCR_ALPHA: ${OCR_ALPHA:-0.1}
+      OCR_BETA: ${OCR_BETA:-0.05}
       YC_OCR_API_KEY: ${YC_OCR_API_KEY:-}
       YC_FOLDER_ID: ${YC_FOLDER_ID:-}
     ports:
@@ -45,10 +49,13 @@ services:
       ML_URL: http://ml:8001
       DATABASE_URL: postgresql://wine:wine@db:5432/wine
       MODEL_NAME: ${MODEL_NAME:-google/siglip2-so400m-patch14-384}
-      CONFIDENCE_MARGIN: ${CONFIDENCE_MARGIN:-0.03}
+      CONFIDENCE_MARGIN: ${CONFIDENCE_MARGIN:-0.05}
       NOT_FOUND_SCORE: ${NOT_FOUND_SCORE:-0.75}
       LABEL_WEIGHT: ${LABEL_WEIGHT:-0.5}
       OCR_ENABLED: ${OCR_ENABLED:-1}
+      RERANK_K: ${RERANK_K:-10}
+      ML_TIMEOUT_MS: ${ML_TIMEOUT_MS:-8000}
+      EMBEDDING_DIM: ${EMBEDDING_DIM:-1152}
       CATALOG_IMAGES_DIR: /data/catalog/images
     ports:
       - "8080:8080"

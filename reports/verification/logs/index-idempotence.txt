@@ -1,0 +1,3 @@
+[full] 2076 wines, 2076 already indexed, 0 to embed
+[label_mid] 2076 wines, 2076 already indexed, 0 to embed
+[label_low] 2076 wines, 2076 already indexed, 0 to embed

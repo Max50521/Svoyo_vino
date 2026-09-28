@@ -16,6 +16,7 @@ export interface SearchResponse {
   engine: string
   model: string | null
   latency_ms: number
+  diagnostics?: Record<string, unknown>
 }
 
 export const wineImageUrl = (slug: string) => `/v1/wines/${encodeURIComponent(slug)}/image`
@@ -24,19 +25,22 @@ export async function runSearch(event: H3Event): Promise<SearchResponse> {
   const t0 = performance.now()
   const image = await readImage(event)
   const engine = getEngine()
-  const top5 = (await engine.recognize(image, 5)).map(c => ({ ...c, image_url: wineImageUrl(c.slug) }))
+  const result = await engine.recognize(image, 5)
+  const top5 = result.candidates.map(c => ({ ...c, image_url: wineImageUrl(c.slug) }))
+  if (!top5.length) throw new ApiError(503, 'recognition index is empty')
   const margin = top5.length >= 2 ? Number((top5[0].score - top5[1].score).toFixed(4)) : null
+  const status = recognitionStatus(result.bestVisualScore, margin, {
+    notFoundScore: appConfig.notFoundScore, confidenceMargin: appConfig.confidenceMargin,
+  })
   return {
     top1: top5[0] ?? null,
     top5,
     margin,
-    confident: margin !== null && margin >= appConfig.confidenceMargin,
+    confident: status === 'confident',
     // "not in catalog" is decided by the best *visual* match: label text must not pull in a wine
     // that does not look like the photo
-    status: recognitionStatus(top5.length ? Math.max(...top5.map(c => c.visual ?? c.score)) : null, margin, {
-      notFoundScore: appConfig.notFoundScore,
-      confidenceMargin: appConfig.confidenceMargin,
-    }),
+    status,
+    diagnostics: { ...result.diagnostics, best_visual_score: result.bestVisualScore },
     engine: engine.name,
     model: engine.model,
     latency_ms: Math.round(performance.now() - t0),

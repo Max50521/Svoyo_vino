@@ -10,7 +10,7 @@ const notFound = computed(() => scan.value?.result.status === 'not_found' ? scan
 
 onMounted(() => {
   // a finished "not found" scan stays on screen; anything else starts fresh
-  if (scan.value && scan.value.result.status !== 'not_found') scan.value = null
+  if (scan.value && scan.value.result.status !== 'not_found') clearScan()
 })
 
 async function onFile(e: Event) {
@@ -18,16 +18,18 @@ async function onFile(e: Event) {
   const file = input.files?.[0]
   input.value = ''
   if (!file) return
+  if (file.size > 15 * 1024 * 1024) { error.value = 'Размер фото не должен превышать 15 МБ.'; return }
   error.value = null
   loading.value = true
   const photoUrl = URL.createObjectURL(file)
-  scan.value = null
+  clearScan()
   try {
     const result = await searchByPhoto(file)
     scan.value = { photoUrl, result }
     if (result.status !== 'not_found' && result.top1) await navigateTo(`/wine/${result.top1.slug}`)
   }
   catch (err: any) {
+    URL.revokeObjectURL(photoUrl)
     error.value = err?.data?.error || 'Не удалось распознать фото. Попробуйте ещё раз.'
   }
   finally {
@@ -63,9 +65,9 @@ async function onFile(e: Event) {
     <section v-if="notFound" class="not-found">
       <div class="notice">
         <img :src="notFound.photoUrl" class="photo" alt="Ваше фото">
-        <span><b>Точного совпадения нет в каталоге.</b> Возможно, этого вина ещё нет на платформе — вот самые похожие.</span>
+        <span><b>Не удалось уверенно найти вино.</b> Возможно, этого вина ещё нет на платформе — вот самые похожие.</span>
       </div>
-      <h2 class="section-title">Похожие вина</h2>
+      <h2 class="section-title">Похожие по этикетке</h2>
       <WineGrid :wines="notFound.result.top5" />
     </section>
 

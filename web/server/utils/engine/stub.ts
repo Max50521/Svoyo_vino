@@ -17,12 +17,13 @@ export class StubEngine implements RecognitionEngine {
   readonly name = 'stub'
   readonly model = null
 
-  async recognize(image: UploadedImage, k: number): Promise<Candidate[]> {
+  async recognize(image: UploadedImage, k: number): Promise<RecognitionResult> {
     const h = createHash('sha256').update(image.data).digest()
     const start = h[0] % STUB_WINES.length
-    return Array.from({ length: Math.min(k, STUB_WINES.length) }, (_, i) => ({
+    const candidates = Array.from({ length: Math.min(k, STUB_WINES.length) }, (_, i) => ({
       ...STUB_WINES[(start + i) % STUB_WINES.length],
       score: Number((0.9 - i * 0.07 - (h[1] / 255) * 0.02).toFixed(4)),
     }))
+    return { candidates, bestVisualScore: candidates[0]?.score ?? 0, diagnostics: { stub: true } }
   }
 }

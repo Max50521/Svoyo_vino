@@ -6,8 +6,8 @@ const route = useRoute()
 const slug = computed(() => String(route.params.slug))
 const scan = useScan()
 
-const { data: wine, error } = await useFetch<Wine>(() => `/v1/wines/${encodeURIComponent(slug.value)}`)
-const { data: similar } = await useFetch<WineShort[]>(() => `/v1/wines/${encodeURIComponent(slug.value)}/similar?limit=8`, { default: () => [] })
+const { data: wine, error, refresh } = await useFetch<Wine>(() => `/v1/wines/${encodeURIComponent(slug.value)}`)
+const { data: similar } = useLazyFetch<WineShort[]>(() => `/v1/wines/${encodeURIComponent(slug.value)}/similar?limit=8`, { default: () => [], server: false, timeout: 5000, retry: 0 })
 
 useHead(() => ({ title: wine.value ? `${wine.value.name} — Своё вино` : 'Вино — Своё вино' }))
 
@@ -18,7 +18,7 @@ const fromScan = computed(() => {
 })
 const isTop1 = computed(() => fromScan.value?.result.top1?.slug === slug.value)
 const uncertain = computed(() => isTop1.value && fromScan.value?.result.status === 'uncertain')
-const alternatives = computed(() => fromScan.value?.result.top5.filter(c => c.slug !== slug.value) ?? [])
+const alternatives = computed(() => fromScan.value?.result.top5.filter((c: WineShort) => c.slug !== slug.value) ?? [])
 const showAlternatives = ref(false)
 watchEffect(() => { showAlternatives.value = uncertain.value || (!!fromScan.value && !isTop1.value) })
 
@@ -41,7 +41,9 @@ const specs = computed(() => {
     </p>
 
     <div v-if="error" class="notice">
-      <span><b>Вино не найдено.</b> <NuxtLink to="/" class="link">Сканировать другое</NuxtLink></span>
+      <span><b>{{ error.statusCode === 404 ? 'Вино не найдено.' : 'Карточка временно недоступна.' }}</b>
+        <button v-if="error.statusCode !== 404" class="btn btn--ghost" @click="refresh()">Попробовать ещё раз</button>
+        <NuxtLink to="/" class="link">Сканировать другое</NuxtLink></span>
     </div>
 
     <template v-else-if="wine">
@@ -81,7 +83,7 @@ const specs = computed(() => {
       </section>
 
       <section v-if="similar?.length">
-        <h2 class="section-title">Похожие вина</h2>
+        <h2 class="section-title">Похожие по этикетке</h2>
         <WineGrid :wines="similar" />
       </section>
 

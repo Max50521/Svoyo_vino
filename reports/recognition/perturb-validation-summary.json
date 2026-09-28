@@ -1,0 +1,13 @@
+{
+  "mode": "perturb",
+  "n": 192,
+  "baseline_top1": 162,
+  "current_top1": 170,
+  "current_top5": 191,
+  "improvements": 12,
+  "regressions": 4,
+  "same_index_for_both": 2080,
+  "seed": 20260928,
+  "baseline_sha256": "c91954e1c8ae070202829a02bdc493175bc3178628155a01af68a2b526cb96f9",
+  "limitations": "Derived images / catalog synthesis, not independent real field holdout. No tuning on these outputs."
+}

@@ -1,0 +1,25 @@
+{
+  "ready": true,
+  "status": "ok",
+  "engine": "vector",
+  "model": "google/siglip2-so400m-patch14-384",
+  "db": {
+    "ok": true,
+    "wines": 2076,
+    "indexed": 2076,
+    "full": 2076,
+    "label_mid": 2076,
+    "label_low": 2076,
+    "min_dim": 1152,
+    "max_dim": 1152
+  },
+  "ml": {
+    "status": "ok",
+    "model": "google/siglip2-so400m-patch14-384",
+    "device": "cuda",
+    "dim": 1152,
+    "ocr": "easyocr",
+    "ocr_error": null,
+    "ok": true
+  }
+}

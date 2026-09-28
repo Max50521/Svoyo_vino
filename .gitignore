@@ -18,3 +18,5 @@ reports/cache/
 
 # real test photos (personal, large)
 eval/real/photos/
+reports/recognition/analysis-*.json
+reports/recognition/text-v*.json

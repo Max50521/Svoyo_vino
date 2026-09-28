@@ -10,9 +10,15 @@ export interface Candidate {
   text?: number
 }
 
+export interface RecognitionResult {
+  candidates: Candidate[]
+  bestVisualScore: number
+  diagnostics?: Record<string, unknown>
+}
+
 export interface RecognitionEngine {
   readonly name: string
   readonly model: string | null
   /** Top candidates sorted by score desc (at most `k`). */
-  recognize(image: UploadedImage, k: number): Promise<Candidate[]>
+  recognize(image: UploadedImage, k: number): Promise<RecognitionResult>
 }

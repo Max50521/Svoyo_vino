@@ -107,6 +107,33 @@ def _look_alike(paths: list[Path]) -> bool:
     return all(np.abs(t - thumbs[0]).mean() < REUPLOAD_MAX_DIFF for t in thumbs[1:])
 
 
+def _same_raster(paths: list[Path]) -> bool:
+    """Resolve recompressed copies, including bottles cropped flush to the border.
+
+    Full-resolution local differences must be small; a thumbnail similarity alone
+    could hide a different year or grape on the label. Transparent RGB is ignored.
+    """
+    base = None
+    for path in paths:
+        try:
+            with Image.open(path) as raw:
+                rgba = raw.convert('RGBA')
+                pixels = np.asarray(Image.alpha_composite(
+                    Image.new('RGBA', rgba.size, 'white'), rgba).convert('RGB'), dtype=np.int16)
+                alpha = np.asarray(rgba.getchannel('A'))
+        except OSError:
+            return False
+        if base is None:
+            base = (pixels, alpha)
+            continue
+        if pixels.shape != base[0].shape or not np.array_equal(alpha, base[1]):
+            return False
+        diff = np.abs(pixels-base[0])
+        if diff.max() > 48 or diff.mean() > 2 or np.quantile(diff,.99) > 12:
+            return False
+    return True
+
+
 def index_uploads(files: list[Path]) -> dict[str, list[Path]]:
     idx: dict[str, list[Path]] = defaultdict(list)
     for f in files:
@@ -140,6 +167,8 @@ def resolve_file(candidates: list[Path]) -> tuple[Path | None, str]:
         return products[0], "product_shot"
     if len(products) > 1 and _look_alike(products):
         return max(products, key=lambda p: (p.stat().st_mtime, p.name)), "newest_reupload"
+    if _same_raster(candidates):
+        return sorted(candidates)[0], "equivalent_reencode"
     return None, ""
 
 

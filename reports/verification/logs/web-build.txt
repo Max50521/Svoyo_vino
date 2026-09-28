@@ -1,0 +1,117 @@
+
+> build
+> nuxt build
+
+T  Building Nuxt for production...
+|
+•  Nuxt 3.21.11 (with Nitro 2.13.4, Vite 7.3.6 and Vue 3.5.43)
+|
+•  Nitro preset: node-server
+i Building client...
+i vite v7.3.6 building client environment for production...
+i transforming...
+i ✓ 159 modules transformed.
+i rendering chunks...
+i computing gzip size...
+i .nuxt/dist/client/manifest.json                   2.22 kB │ gzip:  0.47 kB
+i .nuxt/dist/client/_nuxt/entry.CFk1fO71.css        0.47 kB │ gzip:  0.28 kB
+i .nuxt/dist/client/_nuxt/useScan.BcUU_EAi.css      1.13 kB │ gzip:  0.52 kB
+i .nuxt/dist/client/_nuxt/index.DQJFpoti.css        1.24 kB │ gzip:  0.54 kB
+i .nuxt/dist/client/_nuxt/_slug_.DwyFPq8E.css       1.86 kB │ gzip:  0.65 kB
+i .nuxt/dist/client/_nuxt/error-500.I1Dtv2V5.css    1.88 kB │ gzip:  0.72 kB
+i .nuxt/dist/client/_nuxt/error-404.DL_4WIao.css    3.53 kB │ gzip:  1.09 kB
+i .nuxt/dist/client/_nuxt/CKDS7i9E.js               0.25 kB │ gzip:  0.20 kB
+i .nuxt/dist/client/_nuxt/sIkxUjwV.js               1.65 kB │ gzip:  0.90 kB
+i .nuxt/dist/client/_nuxt/D7v1Z85k.js               3.01 kB │ gzip:  1.62 kB
+i .nuxt/dist/client/_nuxt/C7w9fOaN.js               3.39 kB │ gzip:  1.53 kB
+i .nuxt/dist/client/_nuxt/BwUwYuk7.js               3.74 kB │ gzip:  1.70 kB
+i .nuxt/dist/client/_nuxt/CDFjNiDe.js              19.57 kB │ gzip:  8.30 kB
+i .nuxt/dist/client/_nuxt/D_WH3v-f.js             186.38 kB │ gzip: 69.55 kB
+i ✓ built in 1.71s
+√ Client built in 1720ms
+i Building server...
+i vite v7.3.6 building ssr environment for production...
+i transforming...
+i ✓ 91 modules transformed.
+i rendering chunks...
+i ✓ built in 729ms
+√ Server built in 742ms
+[nitro] √ Generated public .output/public
+[nitro] i Building Nuxt Nitro server (preset: node-server, compatibility date: 2025-07-01)
+(node:23248) [DEP0155] DeprecationWarning: Use of deprecated trailing slash pattern mapping "./" in the "exports" field module resolution of the package at C:\Users\Vlad1\OneDrive\Рабочий стол\ПАРАППА\Винище\svoe-vino-scanner\web\node_modules\@vue\shared\package.json imported from C:\Users\Vlad1\OneDrive\Рабочий стол\ПАРАППА\Винище\svoe-vino-scanner\web\node_modules\@nuxt\nitro-server\dist\runtime\templates\error-500.mjs. Mapping specifiers ending in "/" is no longer supported.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[nitro] √ Nuxt Nitro server built
+  ├─ .output/server/chunks/_/config.mjs (1.58 kB) (729 B gzip)
+  ├─ .output/server/chunks/_/config.mjs.map (1.81 kB) (514 B gzip)
+  ├─ .output/server/chunks/_/db.mjs (429 B) (306 B gzip)
+  ├─ .output/server/chunks/_/db.mjs.map (465 B) (271 B gzip)
+  ├─ .output/server/chunks/_/error-500.mjs (4.9 kB) (2.06 kB gzip)
+  ├─ .output/server/chunks/_/error-500.mjs.map (182 B) (154 B gzip)
+  ├─ .output/server/chunks/_/image.mjs (4.08 kB) (1.61 kB gzip)
+  ├─ .output/server/chunks/_/image.mjs.map (4.48 kB) (1.19 kB gzip)
+  ├─ .output/server/chunks/_/nitro.mjs (168 kB) (41.6 kB gzip)
+  ├─ .output/server/chunks/_/nitro.mjs.map (2.99 kB) (749 B gzip)
+  ├─ .output/server/chunks/_/readiness.mjs (1.53 kB) (668 B gzip)
+  ├─ .output/server/chunks/_/readiness.mjs.map (1.39 kB) (485 B gzip)
+  ├─ .output/server/chunks/_/search.mjs (9.16 kB) (3.32 kB gzip)
+  ├─ .output/server/chunks/_/search.mjs.map (8.04 kB) (2.11 kB gzip)
+  ├─ .output/server/chunks/build/_slug_-B8p_za0a.mjs (30.8 kB) (7.89 kB gzip)
+  ├─ .output/server/chunks/build/_slug_-B8p_za0a.mjs.map (691 B) (317 B gzip)
+  ├─ .output/server/chunks/build/_slug_-styles.jI7gZaNx.mjs (2.14 kB) (781 B gzip)
+  ├─ .output/server/chunks/build/_slug_-styles.jI7gZaNx.mjs.map (190 B) (155 B gzip)
+  ├─ .output/server/chunks/build/app-styles.piRHPjMN.mjs (313 B) (211 B gzip)
+  ├─ .output/server/chunks/build/app-styles.piRHPjMN.mjs.map (184 B) (152 B gzip)
+  ├─ .output/server/chunks/build/client.precomputed.mjs (5.77 kB) (888 B gzip)
+  ├─ .output/server/chunks/build/client.precomputed.mjs.map (6.06 kB) (548 B gzip)
+  ├─ .output/server/chunks/build/entry-styles-2.mjs-DOSjFBbm.mjs (680 B) (392 B gzip)
+  ├─ .output/server/chunks/build/entry-styles-2.mjs-DOSjFBbm.mjs.map (94 B) (105 B gzip)
+  ├─ .output/server/chunks/build/entry-styles.C89-IbsW.mjs (1.77 kB) (907 B gzip)
+  ├─ .output/server/chunks/build/entry-styles.C89-IbsW.mjs.map (216 B) (168 B gzip)
+  ├─ .output/server/chunks/build/error-404-1ZWH3UaZ.mjs (5.6 kB) (2.24 kB gzip)
+  ├─ .output/server/chunks/build/error-404-1ZWH3UaZ.mjs.map (223 B) (186 B gzip)
+  ├─ .output/server/chunks/build/error-404-styles.Pd4Strki.mjs (3.83 kB) (1.22 kB gzip)
+  ├─ .output/server/chunks/build/error-404-styles.Pd4Strki.mjs.map (196 B) (155 B gzip)
+  ├─ .output/server/chunks/build/error-500-D3zroDgz.mjs (4.75 kB) (1.96 kB gzip)
+  ├─ .output/server/chunks/build/error-500-D3zroDgz.mjs.map (205 B) (172 B gzip)
+  ├─ .output/server/chunks/build/error-500-styles.BMmh3bAG.mjs (2.18 kB) (862 B gzip)
+  ├─ .output/server/chunks/build/error-500-styles.BMmh3bAG.mjs.map (196 B) (156 B gzip)
+  ├─ .output/server/chunks/build/index-DXs2DDEr.mjs (5.45 kB) (1.66 kB gzip)
+  ├─ .output/server/chunks/build/index-DXs2DDEr.mjs.map (1.29 kB) (468 B gzip)
+  ├─ .output/server/chunks/build/index-styles.J2ZELNpD.mjs (1.51 kB) (670 B gzip)
+  ├─ .output/server/chunks/build/index-styles.J2ZELNpD.mjs.map (188 B) (155 B gzip)
+  ├─ .output/server/chunks/build/server.mjs (49.2 kB) (12.6 kB gzip)
+  ├─ .output/server/chunks/build/server.mjs.map (2.41 kB) (652 B gzip)
+  ├─ .output/server/chunks/build/styles.mjs (951 B) (368 B gzip)
+  ├─ .output/server/chunks/build/styles.mjs.map (743 B) (260 B gzip)
+  ├─ .output/server/chunks/build/useScan-D4wCBtQX.mjs (4.3 kB) (1.4 kB gzip)
+  ├─ .output/server/chunks/build/useScan-D4wCBtQX.mjs.map (399 B) (255 B gzip)
+  ├─ .output/server/chunks/build/v3-DR-DBA-i.mjs (702 B) (372 B gzip)
+  ├─ .output/server/chunks/build/v3-DR-DBA-i.mjs.map (179 B) (160 B gzip)
+  ├─ .output/server/chunks/build/WineGrid-styles.BnKH-wNZ.mjs (744 B) (400 B gzip)
+  ├─ .output/server/chunks/build/WineGrid-styles.BnKH-wNZ.mjs.map (194 B) (157 B gzip)
+  ├─ .output/server/chunks/build/WineTile-styles.BQDuOLs9.mjs (969 B) (491 B gzip)
+  ├─ .output/server/chunks/build/WineTile-styles.BQDuOLs9.mjs.map (194 B) (157 B gzip)
+  ├─ .output/server/chunks/routes/health.get.mjs (591 B) (293 B gzip)
+  ├─ .output/server/chunks/routes/health.get.mjs.map (312 B) (202 B gzip)
+  ├─ .output/server/chunks/routes/ready.get.mjs (606 B) (298 B gzip)
+  ├─ .output/server/chunks/routes/ready.get.mjs.map (312 B) (203 B gzip)
+  ├─ .output/server/chunks/routes/renderer.mjs (14.6 kB) (4.78 kB gzip)
+  ├─ .output/server/chunks/routes/renderer.mjs.map (845 B) (272 B gzip)
+  ├─ .output/server/chunks/routes/v1/eval/predict.post.mjs (783 B) (367 B gzip)
+  ├─ .output/server/chunks/routes/v1/eval/predict.post.mjs.map (480 B) (270 B gzip)
+  ├─ .output/server/chunks/routes/v1/search.post.mjs (638 B) (295 B gzip)
+  ├─ .output/server/chunks/routes/v1/search.post.mjs.map (321 B) (205 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/_slug/image.get.mjs (1.63 kB) (722 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/_slug/image.get.mjs.map (1.4 kB) (502 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/_slug/similar.get.mjs (1.58 kB) (718 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/_slug/similar.get.mjs.map (1.03 kB) (418 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/index.get.mjs (1.16 kB) (557 B gzip)
+  ├─ .output/server/chunks/routes/v1/wines/index.get.mjs.map (855 B) (386 B gzip)
+  ├─ .output/server/chunks/virtual/_virtual_spa-template.mjs (94 B) (100 B gzip)
+  ├─ .output/server/chunks/virtual/_virtual_spa-template.mjs.map (88 B) (97 B gzip)
+  ├─ .output/server/index.mjs (1.67 kB) (737 B gzip)
+  └─ .output/server/package.json (1.1 kB) (445 B gzip)
+Σ Total size: 2.24 MB (581 kB gzip)
+[nitro] √ You can preview this build using node .output/server/index.mjs
+|
+—  ✨ Build complete!

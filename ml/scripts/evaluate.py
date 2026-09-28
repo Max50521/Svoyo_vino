@@ -32,6 +32,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import csv
 import json
 import random
@@ -84,6 +85,21 @@ def load_queries(args, wines_in_index: list[str]) -> list[tuple[str, callable]]:
     return out
 
 
+def query_fingerprint(args, queries):
+    """Invalidate cached results when input pixels, model or preprocessing code changes."""
+    h = hashlib.sha256(str(args.model).encode())
+    for name in ("preprocess.py", "augment.py", "ocr.py", "ocr_yandex.py", "embedder.py"):
+        h.update((Path(__file__).resolve().parents[1] / "wine_ml" / name).read_bytes())
+    for slug, loader in queries:
+        im = loader()
+        try:
+            h.update(str((slug, im.mode, im.size)).encode())
+            h.update(im.tobytes())
+        finally:
+            im.close()
+    return h.hexdigest()
+
+
 def embed_queries(args, queries) -> tuple[np.ndarray, float]:
     """Query embeddings (cached; the cache is reused only for the same query list) and embed ms/image."""
     if args.labels:
@@ -91,9 +107,10 @@ def embed_queries(args, queries) -> tuple[np.ndarray, float]:
     else:
         cache = args.out / "cache" / (f"q-{args.model.split('/')[-1]}-seed{args.seed}"
                                       f"-n{args.n_aug}-limit{args.limit}{'-hires' if args.hires else ''}.npz")
+    fingerprint = query_fingerprint(args, queries)
     if cache.exists():
         z = np.load(cache, allow_pickle=False)
-        if list(z["slugs"]) == [s for s, _ in queries]:
+        if "fingerprint" in z and str(z["fingerprint"]) == fingerprint and list(z["slugs"]) == [s for s, _ in queries]:
             print(f"query embeddings from cache: {cache}")
             return z["emb"], float(z["embed_ms"])
 
@@ -111,7 +128,7 @@ def embed_queries(args, queries) -> tuple[np.ndarray, float]:
     ms = 1000 * t_embed / max(len(queries), 1)
     if cache:
         cache.parent.mkdir(parents=True, exist_ok=True)
-        np.savez(cache, emb=q, slugs=np.array([s for s, _ in queries]), embed_ms=ms)
+        np.savez(cache, emb=q, slugs=np.array([s for s, _ in queries]), embed_ms=ms, fingerprint=fingerprint)
     return q, ms
 
 
@@ -135,9 +152,10 @@ def ocr_queries(args, queries) -> list[list[dict]]:
         cache = args.out / "cache" / f"ocr-{OCR_PROVIDER}-labels-{args.labels.stem}.json"
     else:
         cache = args.out / "cache" / f"ocr-{OCR_PROVIDER}-seed{args.seed}-n{args.n_aug}-limit{args.limit}{'-hires' if args.hires else ''}.json"
+    fingerprint = query_fingerprint(args, queries)
     if cache.exists():
         z = json.loads(cache.read_text(encoding="utf-8"))
-        if z["slugs"] == [s for s, _ in queries]:
+        if z.get("fingerprint") == fingerprint and z["slugs"] == [s for s, _ in queries]:
             print(f"OCR from cache: {cache}")
             return z["ocr"]
 
@@ -147,7 +165,7 @@ def ocr_queries(args, queries) -> list[list[dict]]:
     print(f"OCR: {1000 * (time.perf_counter() - t0) / max(len(queries), 1):.0f} ms/img")
     if cache:
         cache.parent.mkdir(parents=True, exist_ok=True)
-        cache.write_text(json.dumps({"slugs": [s for s, _ in queries], "ocr": out}, ensure_ascii=False), encoding="utf-8")
+        cache.write_text(json.dumps({"slugs": [s for s, _ in queries], "ocr": out, "fingerprint": fingerprint}, ensure_ascii=False), encoding="utf-8")
     return out
 
 

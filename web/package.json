@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "nuxt prepare && vue-tsc --noEmit -p .nuxt/tsconfig.json"
   },
   "dependencies": {
     "nuxt": "^3.21.11",
@@ -16,7 +17,13 @@
   "devDependencies": {
     "@nuxt/test-utils": "^4.3.2",
     "@types/pg": "^8.23.1",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.1"
+    "typescript": "5.9.3",
+    "vitest": "^5.0.1",
+    "vue-tsc": "^3.3.11"
+  },
+  "optionalDependencies": {
+    "@oxc-parser/binding-win32-x64-msvc": "^0.143.0",
+    "@oxc-transform/binding-win32-x64-msvc": "^0.143.0",
+    "@rolldown/binding-win32-x64-msvc": "^1.2.9"
   }
 }

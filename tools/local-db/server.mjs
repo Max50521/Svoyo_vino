@@ -1,0 +1,11 @@
+import {PGlite} from '@electric-sql/pglite';
+import {vector} from '@electric-sql/pglite-pgvector';
+import {PGLiteSocketServer} from '@electric-sql/pglite-socket';
+import fs from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../../',import.meta.url));
+const db=await PGlite.create(root+'data/local-pg',{extensions:{vector}});
+await db.exec(await fs.readFile(root+'db/init.sql','utf8'));
+const server=new PGLiteSocketServer({db,port:5433,host:'127.0.0.1',maxConnections:10});
+await server.start(); console.log('Local PostgreSQL + pgvector ready on 127.0.0.1:5433');
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{await server.stop();await db.close();process.exit(0)});

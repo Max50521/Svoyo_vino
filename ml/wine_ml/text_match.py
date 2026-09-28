@@ -3,7 +3,8 @@
 CV finds the right label series; within a series wines differ by words
 (sugar, colour, grape, year) that CV barely sees. For each candidate we check
 how much of its name/winery is confirmed by OCR (recall) and how much of the
-informative OCR text it explains (precision), then add the F1 to the visual
+informative OCR text it explains (precision), then add a precision-weighted
+text agreement score (F-beta, beta=0.5) to the visual
 score and subtract a penalty for contradictions (e.g. label says "брют",
 candidate is "полусладкое").
 
@@ -20,6 +21,7 @@ from __future__ import annotations
 
 import math
 import re
+from functools import lru_cache
 
 _TRANSLIT = dict(zip(
     "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
@@ -74,6 +76,7 @@ def _lev(a: str, b: str) -> int:
     return prev[-1]
 
 
+@lru_cache(maxsize=65536)
 def fuzzy_sim(a: str, b: str) -> float:
     if a == b:
         return 1.0
@@ -107,18 +110,66 @@ def _ocr_weighted_tokens(ocr: list[dict]) -> list[tuple[str, float]]:
         if "cx" in item:
             dx, dy = item["cx"] - 0.5, item.get("cy", 0.5) - 0.5
             w *= math.exp(-dx * dx / (2 * CENTER_SIGMA_X ** 2) - dy * dy / (2 * CENTER_SIGMA_Y ** 2))
-        out += [(t, w) for t in tokens(item["text"])]
+        ts = label_tokens(item["text"], repair=True)
+        out += [(t, w) for t in ts]
+        # OCR splits spaced lettering inside a single text box (e.g. MUS CAT).
+        # Joined variants are only useful when supported by a catalog token.
+        for n in range(2, min(8, len(ts)) + 1):
+            out += [(canonical_token(''.join(ts[i:i+n])), w * .95)
+                    for i in range(len(ts)-n+1) if 3 <= len(''.join(ts[i:i+n])) <= 24]
     return out
 
 
+ALIASES = {
+    'muscat':'muskat', 'cabernet':'kaberne', 'sauvignon':'sovinon',
+    'sovinon':'sovinon', 'sovinion':'sovinon', 'merlot':'merlo',
+    'chardonnay':'shardone', 'pinot':'pino', 'riesling':'risling',
+}
+STOP_WORDS = {'vino','wine','winery','vineyard','vineyards','vinodelnya',
+              'semeynaya','semeynoe','rossiyskoe','rossiyskoy','vin','dom',
+              'pomeste','pomestye','usadba'}
+
+def canonical_token(t: str) -> str:
+    t = t.replace('shch','sch').replace('shh','sch').replace('kh','h')
+    return ALIASES.get(t,t)
+
+def label_tokens(text: str | None, repair: bool = False) -> list[str]:
+    """Keep short fragments until joining; canonicalize common grape spellings."""
+    if not text:
+        return []
+    # OCR frequently mixes visually identical Cyrillic and Latin characters.
+    chunks=[]
+    lookalikes=str.maketrans('ABCEHKMOPTXYabceopxy','АВСЕНКМОРТХУавсеорху')
+    if repair and len(re.findall('[а-яА-ЯёЁ]',text)) >= 2:
+        text=text.translate(lookalikes).replace('₽','Р')
+    for chunk in re.findall(r'[\w]+',text):
+        if re.search('[а-яА-ЯёЁ]',chunk):
+            chunk=chunk.translate(lookalikes)
+        chunks.extend(re.findall('[a-z0-9]+',translit(chunk)))
+    return [canonical_token(t) for t in chunks]
+
+@lru_cache(maxsize=65536)
+def label_similarity(a: str, b: str) -> float:
+    if a==b:
+        return 1.
+    # Inflected family names on a label vs the nominative catalog name.
+    if len(a)>=6 and b.startswith(a) and b[len(a):] in {'ov','a','aia','y','i'}:
+        return .95
+    if min(len(a),len(b))>=4 and len(a)==len(b):
+        return 1-_lev(a,b)/len(a)
+    return fuzzy_sim(a,b)
+
+
 def candidate_name_tokens(c: dict) -> list[str]:
-    """What is printed on a label: wine name and winery."""
-    return list(dict.fromkeys(tokens(c.get("name")) + tokens(c.get("winery"))))
+    """What may be printed on a label: wine name, winery and grape varieties."""
+    return list(dict.fromkeys(t for key in ('name','winery','grapes')
+                              for t in label_tokens(c.get(key))
+                              if len(t)>=3 and t not in STOP_WORDS))
 
 
 def candidate_attr_tokens(c: dict) -> list[str]:
     """Attributes used for contradictions: name, category and slug (slug carries colour/sugar)."""
-    return tokens(c.get("name")) + tokens(c.get("category")) + tokens((c.get("slug") or "").replace("-", " "))
+    return label_tokens(c.get("name")) + label_tokens(c.get("category")) + label_tokens((c.get("slug") or "").replace("-", " "))
 
 
 def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -> list[dict]:
@@ -136,8 +187,9 @@ def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -
     def evidence(t: str) -> tuple[float, int]:
         best, idx = 0.0, -1
         for i, (o, w) in enumerate(ocr_toks):
-            s = fuzzy_sim(t, o)
-            if s >= FUZZY_MIN and s * w > best:
+            s = label_similarity(t, o)
+            threshold = .75 if min(len(t),len(o)) == 4 else FUZZY_MIN
+            if s >= threshold and s * w > best:
                 best, idx = s * w, i
         return best, idx
 
@@ -149,15 +201,17 @@ def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -
             informative[i] = max(informative.get(i, 0.0), idf[t] * ocr_toks[i][1])
     info_total = sum(informative.values())
 
-    ocr_plain = [t for t, _ in ocr_toks]
+    ocr_plain = [t for t, w in ocr_toks if w >= .35]
     out = []
     for c, toks in zip(candidates, names):
         total = sum(idf[t] for t in toks)
         matched = sum(idf[t] * ev[t][0] for t in toks)
         recall = matched / total if total else 0.0
-        explained = sum(informative[ev[t][1]] for t in toks if ev[t][1] in informative)
+        explained = sum(informative[i] for i in {ev[t][1] for t in toks} if i in informative)
         precision = min(1.0, explained / info_total) if info_total else 0.0
-        text = 2 * recall * precision / (recall + precision) if recall + precision else 0.0
+        # A partial label need not spell the entire catalog description. Favor
+        # explaining the visible words over rewarding the shortest product name.
+        text = 1.25 * recall * precision / (.25 * precision + recall) if recall + precision else 0.0
         n_conf = conflicts(ocr_plain, candidate_attr_tokens(c)) if ocr_plain else 0
         out.append({**c, "text": round(text, 4), "conflicts": n_conf,
                     "final": round(c["visual"] + alpha * text - beta * n_conf, 4)})

@@ -25,13 +25,34 @@ export function detectImageType(data: Buffer): string | null {
 
 /** Reads multipart field `image`; throws ApiError(400/413) on bad input. */
 export async function readImage(event: H3Event): Promise<UploadedImage> {
-  let parts
+  const contentType = getHeader(event, 'content-type') ?? ''
+  if (!contentType.startsWith('multipart/form-data;')) throw new ApiError(400, 'expected multipart/form-data')
+  // Bound the entire streamed request before parsing multipart, including chunked uploads.
+  const limit = appConfig.maxUploadBytes + 64 * 1024
+  if (Number(getHeader(event, 'content-length')) > limit) throw new ApiError(413, 'image too large')
+  const raw = await new Promise<Buffer>((resolve, reject) => {
+    const chunks: Buffer[] = []
+    let size = 0, rejected = false
+    event.node.req.on('data', (chunk: Buffer) => {
+      if (rejected) return
+      size += chunk.length
+      if (size > limit) {
+        rejected = true; chunks.length = 0
+        reject(new ApiError(413, 'image too large'))
+      } else chunks.push(chunk)
+    })
+    event.node.req.on('end', () => { if (!rejected) resolve(Buffer.concat(chunks)) })
+    event.node.req.on('error', () => reject(new ApiError(400, 'invalid upload')))
+    event.node.req.on('aborted', () => reject(new ApiError(400, 'upload aborted')))
+  })
+  let parts: { name: string, data: Buffer, filename?: string }[]
   try {
-    parts = await readMultipartFormData(event)
-  }
-  catch {
-    throw new ApiError(400, 'expected multipart/form-data with field "image"')
-  }
+    const form = await new Response(new Uint8Array(raw), { headers: { 'content-type': contentType } }).formData()
+    parts = []
+    for (const [name, value] of form.entries()) {
+      if (typeof value !== 'string') parts.push({ name, filename: value.name, data: Buffer.from(await value.arrayBuffer()) })
+    }
+  } catch { throw new ApiError(400, 'invalid multipart/form-data') }
   const part = parts?.find(p => p.name === 'image')
   if (!part || !part.data?.length) throw new ApiError(400, 'missing multipart field "image"')
   if (part.data.length > appConfig.maxUploadBytes) throw new ApiError(413, 'image too large')

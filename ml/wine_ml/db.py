@@ -12,7 +12,7 @@ WINE_COLUMNS = ("slug", "name", "category", "color", "region", "grapes",
 
 
 def connect(url: str = DATABASE_URL) -> psycopg.Connection:
-    conn = psycopg.connect(url)
+    conn = psycopg.connect(url, prepare_threshold=None)
     register_vector(conn)
     return conn
 

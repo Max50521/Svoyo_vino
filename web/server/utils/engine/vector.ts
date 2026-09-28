@@ -3,7 +3,7 @@
  * then re-ranking of the visual Top-K by the text read on the label (ml /rerank).
  */
 interface OcrItem { text: string, conf: number, cx?: number, cy?: number, h?: number }
-interface Analysis { model: string, embedding: number[], ocr: OcrItem[] }
+interface Analysis { model: string, embedding: number[], ocr: OcrItem[], ocr_fallback?: string, ocr_timeout?: boolean }
 interface VisualCandidate { slug: string, name: string, winery: string | null, grapes: string | null, category: string | null, visual: number }
 interface Reranked extends VisualCandidate { text: number, conflicts: number, final: number }
 
@@ -22,17 +22,20 @@ export class VectorEngine implements RecognitionEngine {
       throw new ApiError(503, `ml service unavailable: ${(e as Error).message}`)
     }
     if (res.status === 400) throw new ApiError(400, 'unsupported or corrupted image')
+    if (res.status === 413) throw new ApiError(413, 'image too large')
     if (!res.ok) throw new ApiError(503, `ml service error ${res.status} on ${path}`)
     return (await res.json()) as T
   }
 
   private async analyze(image: UploadedImage, withOcr: boolean): Promise<Analysis> {
     const fd = new FormData()
-    fd.append('image', new Blob([image.data], { type: image.type }), image.filename)
+    fd.append('image', new Blob([new Uint8Array(image.data)], { type: image.type }), image.filename)
     const body = await this.callMl<Analysis>(withOcr ? '/analyze' : '/embed', { method: 'POST', body: fd })
     if (body.model !== this.model) {
       throw new ApiError(503, `ml model "${body.model}" != index model "${this.model}"`)
     }
+    if (!Array.isArray(body.embedding) || body.embedding.length !== appConfig.embeddingDim
+        || !body.embedding.every(Number.isFinite)) throw new ApiError(503, 'invalid embedding')
     return { ...body, ocr: body.ocr ?? [] }
   }
 
@@ -65,22 +68,36 @@ export class VectorEngine implements RecognitionEngine {
     }
   }
 
-  async recognize(image: UploadedImage, k: number): Promise<Candidate[]> {
+  async recognize(image: UploadedImage, k: number): Promise<RecognitionResult> {
     const withOcr = appConfig.ocrEnabled
-    const { embedding, ocr } = await this.analyze(image, withOcr)
+    const analysis = await this.analyze(image, withOcr)
+    const { embedding, ocr } = analysis
     const visual = await this.visualTop(embedding, withOcr ? Math.max(k, appConfig.rerankK) : k)
+    if (!visual.length) throw new ApiError(503, 'recognition index is empty')
+    const bestVisualScore = Math.max(...visual.map(c => c.visual))
+    const diagnostics: Record<string, unknown> = { ocr_items: ocr.length, ocr_fallback: analysis.ocr_fallback ?? null, reranked: false }
 
     let ranked: (VisualCandidate & Partial<Reranked>)[] = visual
     if (withOcr && ocr.length) {
+      try {
       const body = await this.callMl<{ candidates: Reranked[] }>('/rerank', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ocr, candidates: visual }),
       })
-      ranked = body.candidates
+      if (body.candidates.length !== visual.length || new Set(body.candidates.map(c => c.slug)).size !== visual.length
+          || body.candidates.some(c => !visual.some(v => v.slug === c.slug) || !Number.isFinite(c.final))) {
+        throw new Error('invalid rerank response')
+      }
+      ranked = body.candidates.sort((a, b) => b.final - a.final)
+      diagnostics.reranked = true
+      } catch (error) {
+        console.error('[rerank fallback]', error)
+        diagnostics.ocr_fallback = 'rerank_error'
+      }
     }
     const r4 = (x: number) => Number(x.toFixed(4))
-    return ranked.slice(0, k).map(c => ({
+    const candidates = ranked.slice(0, k).map(c => ({
       slug: c.slug,
       name: c.name,
       winery: c.winery,
@@ -88,5 +105,6 @@ export class VectorEngine implements RecognitionEngine {
       visual: r4(c.visual),
       ...(c.text !== undefined ? { text: c.text } : {}),
     }))
+    return { candidates, bestVisualScore, diagnostics }
   }
 }

@@ -1,0 +1,6 @@
+
+> typecheck
+> nuxt prepare && vue-tsc --noEmit -p .nuxt/tsconfig.json
+
+|
+*  Types generated in .nuxt.

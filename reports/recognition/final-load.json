@@ -1,0 +1,395 @@
+{
+  "concurrent": 12,
+  "elapsed_ms": 1910.6,
+  "http": {
+    "503": 9,
+    "200": 3
+  },
+  "rows": [
+    {
+      "id": 0,
+      "http": 503,
+      "ms": 1145.5,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 1,
+      "http": 503,
+      "ms": 1144.6,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 2,
+      "http": 503,
+      "ms": 1123.2,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 3,
+      "http": 503,
+      "ms": 1037.5,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 4,
+      "http": 200,
+      "ms": 1567.6,
+      "body": {
+        "top1": {
+          "slug": "rozovoe-polusladkoe",
+          "name": "Розовое полусладкое",
+          "winery": "Фанагория",
+          "score": 0.672,
+          "visual": 0.672,
+          "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+        },
+        "top5": [
+          {
+            "slug": "rozovoe-polusladkoe",
+            "name": "Розовое полусладкое",
+            "winery": "Фанагория",
+            "score": 0.672,
+            "visual": 0.672,
+            "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+          },
+          {
+            "slug": "fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11",
+            "name": "Зелёное вино. Рислинг - Цитронный Магарача - Мерло",
+            "winery": "Фанагория",
+            "score": 0.6634,
+            "visual": 0.6634,
+            "image_url": "/v1/wines/fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11/image"
+          },
+          {
+            "slug": "zolotaya-balka-pink-sira-rozovoe-suhoe-13",
+            "name": "Pink",
+            "winery": "Золотая Балка",
+            "score": 0.6564,
+            "visual": 0.6564,
+            "image_url": "/v1/wines/zolotaya-balka-pink-sira-rozovoe-suhoe-13/image"
+          },
+          {
+            "slug": "zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1",
+            "name": "Жемчужная 9 Пино Нуар, Мускат розовый",
+            "winery": "АРАТТИ",
+            "score": 0.6529,
+            "visual": 0.6529,
+            "image_url": "/v1/wines/zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1/image"
+          },
+          {
+            "slug": "leto-kaberne-fran-2024-polusladkoe-krasnoe",
+            "name": "LETO Каберне Фран 2024 полусладкое красное",
+            "winery": "LETO",
+            "score": 0.6499,
+            "visual": 0.6499,
+            "image_url": "/v1/wines/leto-kaberne-fran-2024-polusladkoe-krasnoe/image"
+          }
+        ],
+        "margin": 0.0086,
+        "confident": false,
+        "status": "not_found",
+        "diagnostics": {
+          "ocr_items": 0,
+          "ocr_fallback": "busy",
+          "reranked": false,
+          "best_visual_score": 0.6720209341933132
+        },
+        "engine": "vector",
+        "model": "google/siglip2-so400m-patch14-384",
+        "latency_ms": 1553
+      }
+    },
+    {
+      "id": 5,
+      "http": 200,
+      "ms": 1376.0,
+      "body": {
+        "top1": {
+          "slug": "rozovoe-polusladkoe",
+          "name": "Розовое полусладкое",
+          "winery": "Фанагория",
+          "score": 0.686,
+          "visual": 0.672,
+          "text": 0.1397,
+          "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+        },
+        "top5": [
+          {
+            "slug": "rozovoe-polusladkoe",
+            "name": "Розовое полусладкое",
+            "winery": "Фанагория",
+            "score": 0.686,
+            "visual": 0.672,
+            "text": 0.1397,
+            "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+          },
+          {
+            "slug": "fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11",
+            "name": "Зелёное вино. Рислинг - Цитронный Магарача - Мерло",
+            "winery": "Фанагория",
+            "score": 0.6791,
+            "visual": 0.6634,
+            "text": 0.1563,
+            "image_url": "/v1/wines/fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11/image"
+          },
+          {
+            "slug": "fanagoriya-beloe-polusladkoe",
+            "name": "Фанагория белое полусладкое",
+            "winery": "Фанагория",
+            "score": 0.6709,
+            "visual": 0.6493,
+            "text": 0.2161,
+            "image_url": "/v1/wines/fanagoriya-beloe-polusladkoe/image"
+          },
+          {
+            "slug": "zolotaya-balka-pink-sira-rozovoe-suhoe-13",
+            "name": "Pink",
+            "winery": "Золотая Балка",
+            "score": 0.6564,
+            "visual": 0.6564,
+            "text": 0,
+            "image_url": "/v1/wines/zolotaya-balka-pink-sira-rozovoe-suhoe-13/image"
+          },
+          {
+            "slug": "zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1",
+            "name": "Жемчужная 9 Пино Нуар, Мускат розовый",
+            "winery": "АРАТТИ",
+            "score": 0.6529,
+            "visual": 0.6529,
+            "text": 0,
+            "image_url": "/v1/wines/zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1/image"
+          }
+        ],
+        "margin": 0.0069,
+        "confident": false,
+        "status": "not_found",
+        "diagnostics": {
+          "ocr_items": 8,
+          "ocr_fallback": null,
+          "reranked": true,
+          "best_visual_score": 0.6720209341933132
+        },
+        "engine": "vector",
+        "model": "google/siglip2-so400m-patch14-384",
+        "latency_ms": 1362
+      }
+    },
+    {
+      "id": 6,
+      "http": 503,
+      "ms": 999.9,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 7,
+      "http": 503,
+      "ms": 1085.4,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 8,
+      "http": 503,
+      "ms": 991.3,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 9,
+      "http": 503,
+      "ms": 1062.3,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 10,
+      "http": 503,
+      "ms": 1010.7,
+      "body": {
+        "error": "Сервис временно недоступен. Попробуйте ещё раз."
+      }
+    },
+    {
+      "id": 11,
+      "http": 200,
+      "ms": 1862.0,
+      "body": {
+        "top1": {
+          "slug": "rozovoe-polusladkoe",
+          "name": "Розовое полусладкое",
+          "winery": "Фанагория",
+          "score": 0.672,
+          "visual": 0.672,
+          "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+        },
+        "top5": [
+          {
+            "slug": "rozovoe-polusladkoe",
+            "name": "Розовое полусладкое",
+            "winery": "Фанагория",
+            "score": 0.672,
+            "visual": 0.672,
+            "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+          },
+          {
+            "slug": "fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11",
+            "name": "Зелёное вино. Рислинг - Цитронный Магарача - Мерло",
+            "winery": "Фанагория",
+            "score": 0.6634,
+            "visual": 0.6634,
+            "image_url": "/v1/wines/fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11/image"
+          },
+          {
+            "slug": "zolotaya-balka-pink-sira-rozovoe-suhoe-13",
+            "name": "Pink",
+            "winery": "Золотая Балка",
+            "score": 0.6564,
+            "visual": 0.6564,
+            "image_url": "/v1/wines/zolotaya-balka-pink-sira-rozovoe-suhoe-13/image"
+          },
+          {
+            "slug": "zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1",
+            "name": "Жемчужная 9 Пино Нуар, Мускат розовый",
+            "winery": "АРАТТИ",
+            "score": 0.6529,
+            "visual": 0.6529,
+            "image_url": "/v1/wines/zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1/image"
+          },
+          {
+            "slug": "leto-kaberne-fran-2024-polusladkoe-krasnoe",
+            "name": "LETO Каберне Фран 2024 полусладкое красное",
+            "winery": "LETO",
+            "score": 0.6499,
+            "visual": 0.6499,
+            "image_url": "/v1/wines/leto-kaberne-fran-2024-polusladkoe-krasnoe/image"
+          }
+        ],
+        "margin": 0.0086,
+        "confident": false,
+        "status": "not_found",
+        "diagnostics": {
+          "ocr_items": 0,
+          "ocr_fallback": "busy",
+          "reranked": false,
+          "best_visual_score": 0.6720209341933132
+        },
+        "engine": "vector",
+        "model": "google/siglip2-so400m-patch14-384",
+        "latency_ms": 1852
+      }
+    }
+  ],
+  "recovery": {
+    "id": 12,
+    "http": 200,
+    "ms": 732.1,
+    "body": {
+      "top1": {
+        "slug": "rozovoe-polusladkoe",
+        "name": "Розовое полусладкое",
+        "winery": "Фанагория",
+        "score": 0.686,
+        "visual": 0.672,
+        "text": 0.1397,
+        "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+      },
+      "top5": [
+        {
+          "slug": "rozovoe-polusladkoe",
+          "name": "Розовое полусладкое",
+          "winery": "Фанагория",
+          "score": 0.686,
+          "visual": 0.672,
+          "text": 0.1397,
+          "image_url": "/v1/wines/rozovoe-polusladkoe/image"
+        },
+        {
+          "slug": "fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11",
+          "name": "Зелёное вино. Рислинг - Цитронный Магарача - Мерло",
+          "winery": "Фанагория",
+          "score": 0.6791,
+          "visual": 0.6634,
+          "text": 0.1563,
+          "image_url": "/v1/wines/fanagoriya-zelyonoe-vino-risling-tsitronnyy-magaracha-merlo-rozovoe-polusuhoe-11/image"
+        },
+        {
+          "slug": "fanagoriya-beloe-polusladkoe",
+          "name": "Фанагория белое полусладкое",
+          "winery": "Фанагория",
+          "score": 0.6709,
+          "visual": 0.6493,
+          "text": 0.2161,
+          "image_url": "/v1/wines/fanagoriya-beloe-polusladkoe/image"
+        },
+        {
+          "slug": "zolotaya-balka-pink-sira-rozovoe-suhoe-13",
+          "name": "Pink",
+          "winery": "Золотая Балка",
+          "score": 0.6564,
+          "visual": 0.6564,
+          "text": 0,
+          "image_url": "/v1/wines/zolotaya-balka-pink-sira-rozovoe-suhoe-13/image"
+        },
+        {
+          "slug": "zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1",
+          "name": "Жемчужная 9 Пино Нуар, Мускат розовый",
+          "winery": "АРАТТИ",
+          "score": 0.6529,
+          "visual": 0.6529,
+          "text": 0,
+          "image_url": "/v1/wines/zhemchuzhnaya-9-pino-nuar-muskat-rozovyj-1/image"
+        }
+      ],
+      "margin": 0.0069,
+      "confident": false,
+      "status": "not_found",
+      "diagnostics": {
+        "ocr_items": 8,
+        "ocr_fallback": null,
+        "reranked": true,
+        "best_visual_score": 0.6720209341933132
+      },
+      "engine": "vector",
+      "model": "google/siglip2-so400m-patch14-384",
+      "latency_ms": 730
+    }
+  },
+  "readiness": {
+    "ready": true,
+    "status": "ok",
+    "engine": "vector",
+    "model": "google/siglip2-so400m-patch14-384",
+    "db": {
+      "ok": true,
+      "wines": 2080,
+      "indexed": 2080,
+      "full": 2080,
+      "label_mid": 2080,
+      "label_low": 2080,
+      "min_dim": 1152,
+      "max_dim": 1152
+    },
+    "ml": {
+      "status": "ok",
+      "model": "google/siglip2-so400m-patch14-384",
+      "device": "cuda",
+      "dim": 1152,
+      "ocr": "easyocr",
+      "ocr_error": null,
+      "ok": true
+    }
+  }
+}

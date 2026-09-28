@@ -1,0 +1,57 @@
+{
+  "n": 100,
+  "known_n": 64,
+  "known_top1": 59,
+  "known_top5": 64,
+  "single_slug_n": 56,
+  "single_slug_top1": 51,
+  "single_slug_micro_f1": 0.9107142857142857,
+  "single_slug_macro_f1": 0.782608695652174,
+  "macro_f1_class_count": 46,
+  "macro_f1_convention": "Union of truth and predicted classes on the single-slug subset; zero-division=0",
+  "accepted_slug_set_n": 8,
+  "accepted_slug_set_correct": 8,
+  "same_prediction_in_three_runs": 100,
+  "baseline_correct_retained": 54,
+  "fixed_public_errors": [
+    "84.73_07-09-2026_11-07-51.webp",
+    "91.43_02-09-2026_12-08-50.webp",
+    "94.02_24-08-2026_17-46-57.webp",
+    "96.79_28-08-2026_22-05-22.webp",
+    "96.83_20-08-2026_17-48-13.webp"
+  ],
+  "remaining_public_errors": [
+    {
+      "image": "68.81_05-09-2026_15-46-31.webp",
+      "truth": "fanagoriya-velvet-season-muskat-ottonel-beloe-sladkoe-13",
+      "pred": "fanagoriya-velvet-season-risling-beloe-sladkoe-12"
+    },
+    {
+      "image": "70.45_04-09-2026_13-35-37.webp",
+      "truth": "fanagoriya-formula-q-kaberne-sovinon-krasnoe-suhoe-135",
+      "pred": "fanagoriya-formula-q-saperavi-krasnoe-suhoe-135"
+    },
+    {
+      "image": "96.55_30-08-2026_19-34-31.webp",
+      "truth": "novyy-svet-dom-shampanskih-vin-rossiyskoe-shampanskoe-vyderzhannoe-polusladkoe-rozovoe-novyy-svet-shardone-125",
+      "pred": "novyy-svet-dom-shampanskih-vin-novyy-svet-polusladkoe-roze-shardone-rozovoe-115"
+    },
+    {
+      "image": "96.76_07-09-2026_14-57-04.webp",
+      "truth": "pozdnij-sbor-krasnoe",
+      "pred": "pozdnij-sbor-beloe"
+    },
+    {
+      "image": "96.77_24-08-2026_14-10-46.webp",
+      "truth": "golubitskoe-estate-red-blend-kaberne-sovinon-krasnoe-suhoe-136",
+      "pred": "golubitskoe-estate-winery-series-roze-blend-kaberne-sovinon-rozovoe-suhoe-117"
+    }
+  ],
+  "scored_confident_n": 35,
+  "scored_confident_correct": 33,
+  "contract_checks_passed": 20,
+  "ui_cases_passed": 7,
+  "browser_errors": [],
+  "labels_unchanged_from_baseline": true,
+  "input_photos_unchanged_from_baseline": true
+}

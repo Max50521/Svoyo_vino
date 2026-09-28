@@ -10,7 +10,7 @@ const PNG = Buffer.from(
 
 function form(data: Buffer | null, field = 'image') {
   const fd = new FormData()
-  if (data) fd.append(field, new Blob([data], { type: 'image/png' }), 'x.png')
+  if (data) fd.append(field, new Blob([new Uint8Array(data)], { type: 'image/png' }), 'x.png')
   return fd
 }
 

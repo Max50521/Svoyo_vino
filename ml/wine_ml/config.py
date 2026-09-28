@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=False)
 
 MODEL_NAME = os.getenv("MODEL_NAME", "google/siglip2-so400m-patch14-384")
 DEVICE = os.getenv("DEVICE", "auto")  # auto | cuda | cpu

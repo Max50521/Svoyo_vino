@@ -14,8 +14,9 @@ export const appConfig = {
   get modelName() {
     return process.env.MODEL_NAME || 'google/siglip2-so400m-patch14-384'
   },
+  get embeddingDim() { return Number(process.env.EMBEDDING_DIM ?? 1152) },
   get confidenceMargin() {
-    return Number(process.env.CONFIDENCE_MARGIN ?? 0.03)
+    return Number(process.env.CONFIDENCE_MARGIN ?? 0.05)
   },
   /** search score = (1 - w) * whole bottle + w * best label crop */
   get labelWeight() {

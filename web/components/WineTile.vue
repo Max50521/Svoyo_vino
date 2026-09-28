@@ -12,7 +12,7 @@ defineProps<{ wine: WineShort, showScore?: boolean }>()
     </div>
     <div class="tile__name">{{ wine.name }}</div>
     <div class="tile__winery">{{ wine.winery }}</div>
-    <div v-if="showScore" class="tile__score">сходство {{ Math.round(wine.score * 100) }}%</div>
+
   </NuxtLink>
 </template>
 
