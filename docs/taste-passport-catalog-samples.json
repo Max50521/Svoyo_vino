@@ -1,0 +1,48 @@
+{
+  "source": "Organizer dataset: strapi_output0709.csv",
+  "purpose": "Four real metadata examples for taste-passport development. Not a production catalog or a validated taste annotation set.",
+  "source_unique_slugs": 2103,
+  "field_warning": "category contains a color class, not sweetness; color contains the shade description",
+  "records": [
+    {
+      "slug": "avtohtonnoe-vino-kryma-beloe-suhoe",
+      "name": "Автохтонное Вино Крыма белое сухое",
+      "category": "Белое",
+      "color": "Светло-соломенный",
+      "region": "Крым",
+      "grapes": "Алиготе, Кокур Белый, Сары Пандас",
+      "description": "В аромате присутствует фруктово-цветочное направление, курага, груша, легкие медовые оттенки. Вкус умеренно-свежий, полный.",
+      "winery": "Валерий Захарьин"
+    },
+    {
+      "slug": "belbek-muskat-muskat-belyy-beloe-suhoe-127",
+      "name": "Мускат",
+      "category": "Белое",
+      "color": "Светло-лимонный",
+      "region": "Крым",
+      "grapes": "Мускат Белый",
+      "description": "Вкус: Насыщенный, с гармоничной кислотностью и длительным послевкусием. Богатый мускатный, с оттенками самых экзотических фруктов и легкой ноткой бергамота.",
+      "winery": "Бельбек"
+    },
+    {
+      "slug": "denisov_pet_nat_rubin",
+      "name": "Пет-Нат Рубин",
+      "category": "Розовое",
+      "color": "Светло-соломенный с устойчивым муссом и длительным перляжем",
+      "region": "Самара",
+      "grapes": "Рубин Голодриги",
+      "description": "Аромат: яркий, свежий, с пеобладающими оттенками садовых ягод, выроженными нотами вишни, брусники и клюквы. Вкус:  яркие оттенки кизила, клюквы, с выраженными тонами черной смородины и высокой освежающей кислотностью на финише.",
+      "winery": "Denisov Winery"
+    },
+    {
+      "slug": "good-steak-cabernet",
+      "name": "Good Steak Cabernet",
+      "category": "Красное",
+      "color": "Рубиново-красный",
+      "region": "Кубань",
+      "grapes": "Каберне Совиньон",
+      "description": "Вкус вина сочный, фруктовый, с мягкими нюансами какао, округлыми танинами, умеренной кислотностью и объемным послевкусием с оттенками черных ягод и пряностей.\n",
+      "winery": "Olymp Winery"
+    }
+  ]
+}
