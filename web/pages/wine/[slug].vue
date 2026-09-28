@@ -22,6 +22,9 @@ const alternatives = computed(() => fromScan.value?.result.top5.filter((c: WineS
 const showAlternatives = ref(false)
 watchEffect(() => { showAlternatives.value = uncertain.value || (!!fromScan.value && !isTop1.value) })
 
+// Catalog slugs match vino-svoe.ru card URLs (checked on a sample of real cards).
+const portalUrl = computed(() => `https://vino-svoe.ru/wines/${encodeURIComponent(slug.value)}`)
+
 const specs = computed(() => {
   const w = wine.value
   if (!w) return []
@@ -66,8 +69,6 @@ const specs = computed(() => {
               <dd>{{ v }}</dd>
             </div>
           </dl>
-
-          <p v-if="wine.description" class="card__desc">{{ wine.description }}</p>
         </div>
       </article>
 
@@ -81,6 +82,15 @@ const specs = computed(() => {
           <WineGrid :wines="alternatives" show-score />
         </div>
       </section>
+
+      <TastePassport v-if="wine.taste_passport" :key="wine.slug" :passport="wine.taste_passport" :wine-name="wine.name" />
+
+      <section v-if="wine.description" class="desc">
+        <h2 class="section-title">Описание</h2>
+        <p class="card__desc">{{ wine.description }}</p>
+      </section>
+
+      <a class="portal-link" :href="portalUrl" target="_blank" rel="noopener">Полная карточка на Своё Вино <span aria-hidden="true">↗</span></a>
 
       <section v-if="similar?.length">
         <h2 class="section-title">Похожие по этикетке</h2>
@@ -101,14 +111,19 @@ const specs = computed(() => {
 
 .card { display: grid; gap: 20px; }
 .card__media { background: var(--surface); border-radius: var(--radius); display: flex; justify-content: center; padding: 20px; }
-.card__media img { height: 320px; object-fit: contain; mix-blend-mode: multiply; }
+.card__media img { height: 240px; object-fit: contain; mix-blend-mode: multiply; }
 .card__title { font-size: 32px; line-height: 1.15; margin: 0; }
 .card__winery { color: var(--wine); font-weight: 600; margin: 6px 0 20px; }
 .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0; }
 .spec { background: var(--sand-soft); border: 1px solid var(--sand); border-radius: var(--radius-s); padding: 10px 12px; }
 .spec dt { font-size: 12px; color: var(--text-2); margin-bottom: 4px; }
 .spec dd { margin: 0; font-weight: 600; font-size: 15px; }
-.card__desc { line-height: 1.6; margin: 20px 0 0; }
+.card__desc { line-height: 1.6; margin: 0; white-space: pre-line; }
+.desc .section-title { margin-top: 28px; }
+.portal-link {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 12px;
+  color: var(--wine); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+}
 
 @media (min-width: 720px) {
   .card { grid-template-columns: 260px 1fr; align-items: start; }

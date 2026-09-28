@@ -47,3 +47,32 @@ button { font: inherit; }
   background: var(--sand); font-size: 14px; line-height: 1.4;
 }
 .notice b { color: var(--wine); }
+
+/* Taste passport: muted text with WCAG AA contrast (≥ 4.5:1 on --bg and --surface; --text-2 is 3.9:1). */
+:root { --text-muted: #6e6863; }
+
+/* Aroma families: accent marks only; text always uses --text for contrast. */
+:root {
+  --fam-citrus: #b89a1e;
+  --fam-orchard: #c98a2b;
+  --fam-red_berry: #b3404a;
+  --fam-dark_berry: #5e3b63;
+  --fam-tropical: #d9772f;
+  --fam-dried: #93602f;
+  --fam-floral: #9170b3;
+  --fam-herbal: #5f8a45;
+  --fam-spice: #b0553a;
+  --fam-nut: #9c7a52;
+  --fam-wood: #735237;
+  --fam-sweet: #cc9a3d;
+  --fam-mineral: #62798a;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
