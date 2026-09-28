@@ -31,9 +31,9 @@ VectorEngine: `/analyze` (вектор + OCR) → pgvector Top-`RERANK_K` по �
 | Извлечение признаков | `ml/wine_ml/embedder.py` | SigLIP 2 (`google/siglip2-so400m-patch14-384`, 1152-d), fp16 на GPU, L2-нормировка. |
 | Поиск по каталогу | `web/server/utils/engine/vector.ts` | косинусное расстояние `<=>` в pgvector по всем видам вина (бутылка + 2 зоны этикетки, `ml/wine_ml/views.py`); score вина = (1 − w)·бутылка + w·лучшая зона этикетки, w = `LABEL_WEIGHT` (0.5); точный перебор (≈6k векторов), Top-5. |
 | OCR-переранжирование | `ml/wine_ml/ocr.py`, `ml/wine_ml/text_match.py` | EasyOCR (ru+en); нормализация смешанных алфавитов, разорванных слов, вариантов написания сортов и фамилий. Сопоставляются название, винодельня и сорта. IDF внутри Top-10; text — F-beta (beta=0.5) согласования видимых слов, не F1 качества классификации. Слова с пространственно взвешенной уверенностью <0.35 не создают штраф противоречия. final = visual + α·text − β·conflicts. |
-| Выдача карточки | `web/server/routes/v1/wines/[slug]/`, `web/pages/wine/[slug].vue` | карточка вина из таблицы `wines` + фото каталога. |
+| Выдача карточки | `web/server/routes/v1/wines/[slug]/`, `web/pages/wine/[slug].vue` | карточка вина из таблицы `wines` + фото каталога + необязательное поле `taste_passport`. |
 | Уверенность | `web/server/utils/search.ts`, `status.ts` | `score` = итоговый скор; `margin` = score₁ − score₂; `status` = `confident` / `uncertain` / `not_found` по порогам `CONFIDENCE_MARGIN` (по финальному скору) и `NOT_FOUND_SCORE` (по лучшему **визуальному** скору: текст не должен «вытягивать» вино, не похожее на фото). |
-| Доп. функционал | — | следующий этап (сомелье, аналоги) — строится поверх `/v1/search` и `/v1/wines`. |
+| Доп. функционал: «Паспорт вкуса» | `web/server/taste/` (анализатор), `web/types/taste.ts` (типы), `web/components/Taste*.vue`, `Aroma*.vue` (UI) | после найденного slug: чистая функция `buildTastePassport({name, description})` без сети и БД извлекает сладость, кислотность, танины, тело (`known` / `unknown` / `conflict`) и ноты ароматов по 13 семействам; у каждого вывода — точная цитата и id правила `taste-rules@N`. Не участвует в распознавании; сбой анализатора → `taste_passport: null`, карточка остаётся 200. Подробнее — [отчёт](reports/taste-passport/REPORT.md). |
 
 ## Recognition Engine — точка подключения CV
 

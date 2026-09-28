@@ -1,0 +1,2101 @@
+[
+  {
+    "slug": "shato-pino-klassika-sauvignon-blanc",
+    "name": "Шато Пино Классика Sauvignon Blanc",
+    "category": "Белое",
+    "description": "Бокал наполнен зелёными яблоками, корками грейпфрута, свежестью крыжовника.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Зелёное яблоко ← зелёными яблоками",
+      "Грейпфрут ← грейпфрута",
+      "Крыжовник ← крыжовника"
+    ]
+  },
+  {
+    "slug": "esse-chenin-blanc-shenen-blan-beloe-suhoe-12",
+    "name": "Chenin Blanc",
+    "category": "Белое",
+    "description": "Вкус: Звонкий, сбалансированный с долгим послевкусием. Бриошь, ваниль, карамельная груша и желтая черешня.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Выпечка ← Бриошь",
+      "Ваниль ← ваниль",
+      "Карамель ← карамельная",
+      "Груша ← груша",
+      "Черешня ← черешня"
+    ]
+  },
+  {
+    "slug": "vinogradniki-gay-kodzora-muscat-de-gai-kodzor-sladkiy-muskat-aleksandriyskiy-beloe-sladkoe-14",
+    "name": "Muscat de Gai-Kodzor сладкий",
+    "category": "Белое",
+    "description": "Вкус: Тона спелых тропических фруктов, цитрусовой цедры, грейпфрута. Апельсин, тропические фрукты, ноты жасмина и акации.",
+    "summary": "Сладкое",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Сладкое",
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": [
+          "сладкий"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Тропические фрукты (обобщ.) ← тропических фруктов",
+      "Цедра ← цедры",
+      "Грейпфрут ← грейпфрута",
+      "Апельсин ← Апельсин",
+      "Жасмин ← жасмина",
+      "Акация ← акации"
+    ]
+  },
+  {
+    "slug": "sober-bash-risling-risling-reynskiy-beloe-suhoe-12",
+    "name": "Рислинг",
+    "category": "Белое",
+    "description": "В аромате цветочные ноты с нюансами цитрусовой группы и специй. Во вкусе сладкие медовые оттенки, яркая кислотность, цитрусы, специи.",
+    "summary": "Высокая кислотность",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "known",
+        "label": "высокая",
+        "descriptor": null,
+        "quotes": [
+          "яркая кислотность"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Цветы (обобщ.) ← цветочные",
+      "Цитрусы (обобщ.) ← цитрусовой",
+      "Мёд ← медовые",
+      "Пряности (обобщ.) ← специи"
+    ]
+  },
+  {
+    "slug": "alma-valley-kolombar-beloe-polusuhoe-135",
+    "name": "Коломбар",
+    "category": "Белое",
+    "description": "В аромате ноты запеченного яблока, тропических фруктов и белых цветов. Вкус свежий, гармоничный с природной сладостью и изящной кислотностью.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Яблоко ← яблока",
+      "Тропические фрукты (обобщ.) ← тропических фруктов",
+      "Белые цветы ← белых цветов"
+    ]
+  },
+  {
+    "slug": "vinodelnya-myshako-quintessence-new-generation-semi-sweet-white-vione-beloe-polusladkoe-11",
+    "name": "Quintessence New Generation. Semi-Sweet White",
+    "category": "Белое",
+    "description": "Вкус: Свежий, хорошо сбалансированный вкус с приятным послевкусием с фруктово-цитрусовыми оттенками. Ноты крыжовника, смородины, шелковицы, оттенками цитрусовых.",
+    "summary": "Полусладкое",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Полусладкое",
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": [
+          "Semi-Sweet"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Цитрусы (обобщ.) ← цитрусовыми",
+      "Крыжовник ← крыжовника",
+      "Смородина ← смородины",
+      "Шелковица ← шелковицы"
+    ]
+  },
+  {
+    "slug": "vinodelnya-zhakov-kokurkod-beloe-suhoe-118",
+    "name": "Кокуркод",
+    "category": "Белое",
+    "description": "Вкус: Со средней кислотностью, мягкими танинами, легкой солоноватостью, с нотками орехов, попкорна, цукатов. С оттенками жжённого сахара, ферментированной сливы и кукурузы.",
+    "summary": "Средняя кислотность",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "known",
+        "label": "средняя",
+        "descriptor": null,
+        "quotes": [
+          "средней кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "мягкие",
+        "quotes": [
+          "мягкими танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Солёные ноты ← солоноватостью",
+      "Орехи (обобщ.) ← орехов",
+      "Цукаты ← цукатов",
+      "Слива ← сливы"
+    ]
+  },
+  {
+    "slug": "shato-pino-shardone-beloe-suhoe-125",
+    "name": "Шардоне",
+    "category": "Белое",
+    "description": "Вкус: Фруктовый, свежий, сбалансированный с преобладанием тропических фруктов и дюшеса. Яркий сложный с нотами цитрусов и тропических фруктов. Выдержка в дубе придает вину округлость.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Тропические фрукты (обобщ.) ← тропических фруктов",
+      "Груша ← дюшеса",
+      "Цитрусы (обобщ.) ← цитрусов"
+    ]
+  },
+  {
+    "slug": "vinodelnya-raevskoe-parfyum-de-terruar-risling-beloe-suhoe-12",
+    "name": "Парфюм Де Терруар. Рислинг",
+    "category": "Белое",
+    "description": "Вкус: Сбалансированный, с оттенками крыжовника, ревеня, лимонной травы и персика. Свежий с нотками желтых цветов, садовых фруктов, сушеных цитрусовых, минералов, зеленых и оранжевых ягод.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Крыжовник ← крыжовника",
+      "Ревень ← ревеня",
+      "Лимонная трава ← лимонной травы",
+      "Персик ← персика",
+      "Цветы (обобщ.) ← цветов",
+      "Цитрусы (обобщ.) ← цитрусовых",
+      "Минеральность ← минералов",
+      "Ягоды (обобщ.) ← ягод"
+    ]
+  },
+  {
+    "slug": "valeriy-zaharin-traminer-burlyuk-traminer-rozovyy-beloe-suhoe-135",
+    "name": "Траминер. Бурлюк",
+    "category": "Белое",
+    "description": "Вкус: Свежий, с сочной кислотностью и стойким, выразительным послевкусием. Яркий, с оттенками спелого персика, цитрусовых фруктов, специй, розы и пиона, дополненных мускатными и минеральными штрихами.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "сочная",
+        "quotes": [
+          "сочной кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Персик ← персика",
+      "Цитрусы (обобщ.) ← цитрусовых",
+      "Роза ← розы",
+      "Пион ← пиона",
+      "Минеральность ← минеральными"
+    ]
+  },
+  {
+    "slug": "valeriy-zaharin-avtohtonnoe-vino-kryma-sary-pandas-rezerv-beloe-suhoe-115",
+    "name": "Автохтонное вино Крыма. Сары Пандас Резерв",
+    "category": "Белое",
+    "description": "Вкус: Насыщенный, гармоничный, с приятными фруктовыми и дрожжевыми нотками, хорошим балансом кислотности и тонкими нюансами специй в послевкусии. Элегантный с оттенками свежей выпечки, желтого яблока и душистых трав.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Выпечка ← выпечки",
+      "Яблоко ← яблока",
+      "Травы (обобщ.) ← трав"
+    ]
+  },
+  {
+    "slug": "chateau-de-talu-shardone-rezerv-beloe-suhoe-13",
+    "name": "Шардоне Резерв",
+    "category": "Белое",
+    "description": "Вкус: Сбалансированный, со сливочной текстурой, раскрывающейся оттенками пломбира, сливочного масла, аккордами слоеного круассана и изысканной ванили. Сортовой, с цветочными нотами, с нюансами спелой груши, персика, меда, сливочной карамели.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Ваниль ← ванили",
+      "Цветы (обобщ.) ← цветочными",
+      "Груша ← груши",
+      "Персик ← персика",
+      "Мёд ← меда",
+      "Карамель ← карамели"
+    ]
+  },
+  {
+    "slug": "golubitskoe-estate-shardone-rezerv-beloe-suhoe-135",
+    "name": "Шардоне Резерв",
+    "category": "Белое",
+    "description": "Вкус: Умеренно насыщенный, с приятной фруктовой свежестью, сливочными нотками, хорошим балансом кислотности и минеральной прохладой в послевкусии. Выразительный с манящими тонами спелых фруктов, цветущего весеннего сада, тонкими штрихами сливочного масла и специй.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктовой",
+      "Минеральность ← минеральной"
+    ]
+  },
+  {
+    "slug": "b-yu-rne-pino-gri-beloe-suhoe",
+    "name": "БЮРНЬЕ.ПИНО ГРИ белое сухое",
+    "category": "Белое",
+    "description": "Яркая и типичная сортовая ароматика спелых косточковых фруктов (персик, абрикос), мёда и чайной розы. Во вкусе вино объёмное, полнотелое, хорошо структурированное, с мягкой свежей кислотностью, продолжительным послевкусием с лёгкой благородной горчинкой. Очень гастрономичное.",
+    "summary": "Сухое · низкая кислотность · полное тело",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Сухое",
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": [
+          "сухое"
+        ]
+      },
+      "acidity": {
+        "state": "known",
+        "label": "низкая",
+        "descriptor": "свежая",
+        "quotes": [
+          "мягкой свежей кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "known",
+        "label": "полное",
+        "descriptor": null,
+        "quotes": [
+          "полнотелое"
+        ]
+      }
+    },
+    "notes": [
+      "Персик ← персик",
+      "Абрикос ← абрикос",
+      "Мёд ← мёда",
+      "Роза ← розы"
+    ]
+  },
+  {
+    "slug": "novyy-svet-dom-shampanskih-vin-rossiyskoe-shampanskoe-kollektsionnoe-ekstra-bryut-beloe-novyy-svet-kyuve-risling-125",
+    "name": "Российское шампанское коллекционное экстра брют белое «Новый Свет. Кюве»",
+    "category": "Белое",
+    "description": "Аромат свежий, насыщенный, передающий цветение виноградной лозы и полевых цветов; вкус яркий, сложный, с пикантной горчинкой и долгим минеральным послевкусием. Классический метод, выдержка на осадке свыше 36 месяцев без экспедиционного ликёра. Подают к белому мясу, ризотто с морепродуктами, фуа-гра, твёрдым выдержанным сырам.",
+    "summary": "Экстра брют",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Экстра брют",
+        "descriptor": null,
+        "sparkling": true,
+        "quotes": [
+          "экстра брют"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Цветы (обобщ.) ← цветов",
+      "Минеральность ← минеральным"
+    ]
+  },
+  {
+    "slug": "alma-valley-shardone-rezerv-beloe-suhoe-135",
+    "name": "Шардоне Резерв",
+    "category": "Белое",
+    "description": "Аромат глубокий, густой и зрелый: доминируют тона желтого персика, абрикоса, легкие цитрусовые оттенки и сладкие специи, переплетающиеся с дымной вуалью. Фоном звучит нота варенья из белой черешни с шафраном и оттенки тоста со сливочно-фруктовым кремом. Вкус округлый, полнотелый, с маслянистой текстурой, умеренной кислотностью и продолжительным послевкусием, где угадывается легкая дымность. Фактурное и самодостаточное вино.",
+    "summary": "Средняя кислотность · полное тело",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "known",
+        "label": "средняя",
+        "descriptor": null,
+        "quotes": [
+          "умеренной кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "known",
+        "label": "полное",
+        "descriptor": null,
+        "quotes": [
+          "полнотелый"
+        ]
+      }
+    },
+    "notes": [
+      "Персик ← персика",
+      "Абрикос ← абрикоса",
+      "Цитрусы (обобщ.) ← цитрусовые",
+      "Дым ← дымной",
+      "Варенье ← варенья",
+      "Черешня ← черешни",
+      "Шафран ← шафраном",
+      "Выпечка ← тоста"
+    ]
+  },
+  {
+    "slug": "khrustaleva-76-muscat-bryut-beloe",
+    "name": "Khrustaleva 76 muscat, брют, белое",
+    "category": "Белое",
+    "description": "Вкус легкий, почти невесомый, сбалансированный, послевкусие средней продолжительности с тонами цитрусов и персика. Аромат с оттенками цветов липы, акации, розы, цитрусов и нектарина.\n\nВино органическое, подтверждено сертификатом РФ. 83 балла в независимой премии российских игристых вин RUSSIAN BUBBLY CHART 2025.\n\nПрессование винограда при 10°C, стабуляж 10 дней при 5°C, брожение в течение 15 дней в ёмкостях из нержавеющей стали с автоматическим контролем температуры брожения 14‑17°C, по окончании брожения — декантация с толстого дрожжевого осадка. Вторичное брожение в течение 20 дней, с остановкой брожения холодом, при необходимых сахарах. Выдержка в акратофоре на дрожжах в течение 1 месяца.",
+    "summary": "Брют",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Брют",
+        "descriptor": null,
+        "sparkling": true,
+        "quotes": [
+          "брют"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Цитрусы (обобщ.) ← цитрусов",
+      "Персик ← персика",
+      "Липа ← липы",
+      "Акация ← акации",
+      "Роза ← розы",
+      "Нектарин ← нектарина"
+    ]
+  },
+  {
+    "slug": "fanagoriya-dekanter-formula-q-kaberne-sovinon-krasnoe-suhoe-135",
+    "name": "Декантер. Формула Q",
+    "category": "Красное",
+    "description": "В аромате чёрные ягоды, специи, дубовые ноты. Вкус богатый, бархатистый, сбалансированный.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Тёмные ягоды (обобщ.) ← чёрные ягоды",
+      "Пряности (обобщ.) ← специи",
+      "Дуб ← дубовые"
+    ]
+  },
+  {
+    "slug": "vinodelnya-berdyaeva-kaberne-fran-krasnoe-suhoe-115",
+    "name": "Каберне Фран",
+    "category": "Красное",
+    "description": "Вкус: Полнотелое, насыщенный вкус, ноты ягод с перечными тонами. Черные и красные ягоды с тонами кофе,специй.",
+    "summary": "Полное тело",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "known",
+        "label": "полное",
+        "descriptor": null,
+        "quotes": [
+          "Полнотелое"
+        ]
+      }
+    },
+    "notes": [
+      "Ягоды (обобщ.) ← ягод",
+      "Перец ← перечными",
+      "Красные ягоды (обобщ.) ← красные ягоды",
+      "Кофе ← кофе"
+    ]
+  },
+  {
+    "slug": "esse-kaberne-fran-krasnoe-suhoe-13",
+    "name": "Каберне Фран",
+    "category": "Красное",
+    "description": "Вкус: Мягкий, сбалансированный, с живой кислотностью и нежными танинами. Специи, красная слива, вишня и перец чили.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "живая",
+        "quotes": [
+          "живой кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "нежные",
+        "quotes": [
+          "нежными танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Слива ← слива",
+      "Вишня ← вишня",
+      "Перец ← перец"
+    ]
+  },
+  {
+    "slug": "shato-pino-dichkaberne-fran-krasnoe-suhoe-14",
+    "name": "Дичь.Каберне Фран",
+    "category": "Красное",
+    "description": "Вкус: Плотный, цветочно-ягодный с пряными оттенками. Аромат фиалки, ирисов, ежевики, черешни, черного перца и горького шоколада.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фиалка ← фиалки",
+      "Ирис ← ирисов",
+      "Ежевика ← ежевики",
+      "Черешня ← черешни",
+      "Чёрный перец ← черного перца",
+      "Шоколад ← шоколада"
+    ]
+  },
+  {
+    "slug": "soyuz-vino-zelyonaya-dolina-kaberne-merlo-kaberne-sovinon-krasnoe-polusladkoe-12",
+    "name": "Зелёная Долина Каберне-Мерло",
+    "category": "Красное",
+    "description": "Вкус сбалансированный, питкий, с умеренной сладостью, нотами вишни, малины, ежевики и сливы, приятной терпкостью и долгим, сочным послевкусием.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Вишня ← вишни",
+      "Малина ← малины",
+      "Ежевика ← ежевики",
+      "Слива ← сливы"
+    ]
+  },
+  {
+    "slug": "bogovich-wine-vineyard-kaberne-sovinon-krasnoe-suhoe-125",
+    "name": "Каберне Совиньон",
+    "category": "Красное",
+    "description": "Вкус: Сбалансированный, фруктовый с приятными танинами и стойким послевкусием. Раскрывается нотами черники, тонкими травянистыми нюансами и штрихами мягких специй.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктовый",
+      "Черника ← черники",
+      "Травы (обобщ.) ← травянистыми"
+    ]
+  },
+  {
+    "slug": "shato-pino-shiraz-krasnoe-suhoe-135",
+    "name": "Шираз",
+    "category": "Красное",
+    "description": "Вкус: Мягкий, зрелый с ягодным послевкусием и бархатистыми танинами. Насыщенный пряно-фруктовый аромат с преобладанием ежевики, табака и черного перца, горького шоколада.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "бархатистые",
+        "quotes": [
+          "бархатистыми танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Ягоды (обобщ.) ← ягодным",
+      "Фрукты (обобщ.) ← фруктовый",
+      "Ежевика ← ежевики",
+      "Табак ← табака",
+      "Чёрный перец ← черного перца",
+      "Шоколад ← шоколада"
+    ]
+  },
+  {
+    "slug": "abrau-dyurso-abrau-dyurso-pino-nuar-krasnoe-suhoe-13",
+    "name": "Абрау-Дюрсо Пино Нуар",
+    "category": "Красное",
+    "description": "Аромат тонкий — вишня, малина, лёгкие нотки земляники и пряностей; вкус элегантный, с мягкими танинами, свежей кислотностью и продолжительным ягодным послевкусием. К мясным блюдам, сырам.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "свежая",
+        "quotes": [
+          "свежей кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "мягкие",
+        "quotes": [
+          "мягкими танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Вишня ← вишня",
+      "Малина ← малина",
+      "Земляника ← земляники",
+      "Пряности (обобщ.) ← пряностей"
+    ]
+  },
+  {
+    "slug": "vinodelnya-zhakov-saperavi-krasnoe-suhoe-126",
+    "name": "Саперави",
+    "category": "Красное",
+    "description": "Вкус: Округлый с бархатистыми танинами, нотами тёмных фруктов, пряностей и долгим послевкусием с выразительной кислотностью. Многогранный с нотами вишни, ежевики, черной шелковицы и тонами специй.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "бархатистые",
+        "quotes": [
+          "бархатистыми танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктов",
+      "Пряности (обобщ.) ← пряностей",
+      "Вишня ← вишни",
+      "Ежевика ← ежевики",
+      "Шелковица ← шелковицы"
+    ]
+  },
+  {
+    "slug": "dacha-serdyuka-kazache-krasnostop-zolotovskiy-krasnoe-suhoe-135",
+    "name": "Казачье",
+    "category": "Красное",
+    "description": "Вкус: Интенсивный, многослойный, с мягкими нотами сухофруктов, шоколада и ванили. Фруктово-пряный с яркими акцентами темных ягод и теплых специй, тонкими нюансами соли, овощей, лакрицы и чернослива.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Шоколад ← шоколада",
+      "Ваниль ← ванили",
+      "Фрукты (обобщ.) ← Фруктово",
+      "Тёмные ягоды (обобщ.) ← темных ягод",
+      "Лакрица ← лакрицы",
+      "Чернослив ← чернослива"
+    ]
+  },
+  {
+    "slug": "privat",
+    "name": "Приват",
+    "category": "Красное",
+    "description": "В аромате тона спелых ягод великолепно сбалансированы нотками малины, тонами кожи, специй и легкими минеральными оттенками. Элегантное, округлое во вкусе вино с шелковистыми танинами и сочным продолжительным послевкусием.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "шелковистые",
+        "quotes": [
+          "шелковистыми танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Малина ← малины",
+      "Кожа ← кожи",
+      "Минеральность ← минеральными"
+    ]
+  },
+  {
+    "slug": "le-k2-kamenolomnya-sira-krasnoe-suhoe-145",
+    "name": "Каменоломня",
+    "category": "Красное",
+    "description": "В аромате ежевика, черноплодная рябина, черная слива, чернослив в горьком шоколаде, кофе, черный перец, копчёности, кожа, табачные листья. Во вкусе кислотность средняя, танины высокие, бархатистые, полнотелое, послевкусие длительное.",
+    "summary": "Средняя кислотность · выраженные танины · полное тело",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "known",
+        "label": "средняя",
+        "descriptor": null,
+        "quotes": [
+          "кислотность средняя"
+        ]
+      },
+      "tannin": {
+        "state": "known",
+        "label": "выраженные",
+        "descriptor": null,
+        "quotes": [
+          "танины высокие"
+        ]
+      },
+      "body": {
+        "state": "known",
+        "label": "полное",
+        "descriptor": null,
+        "quotes": [
+          "полнотелое"
+        ]
+      }
+    },
+    "notes": [
+      "Ежевика ← ежевика",
+      "Черноплодная рябина ← черноплодная рябина",
+      "Слива ← слива",
+      "Чернослив ← чернослив",
+      "Шоколад ← шоколаде",
+      "Кофе ← кофе",
+      "Чёрный перец ← черный перец",
+      "Дым ← копчёности",
+      "Кожа ← кожа",
+      "Табак ← табачные"
+    ]
+  },
+  {
+    "slug": "agrolayn-heritage-dg-skin-contact-red-saperavi-krasnoe-suhoe-13",
+    "name": "Heritage Dg Skin Contact Red",
+    "category": "Красное",
+    "description": "Вкус: Легкий, освежающий, с деликатной танинной структурой, фруктовыми оттенками, сбалансированной кислотностью и мягким послевкусием. Яркий, душистый, с нотами лесных красных ягод, вишневой косточки, черного перца, подлеска и табачного листа.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "сбалансированная",
+        "quotes": [
+          "сбалансированной кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "деликатные",
+        "quotes": [
+          "деликатной танинной"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктовыми",
+      "Красные ягоды (обобщ.) ← красных ягод",
+      "Вишня ← вишневой",
+      "Чёрный перец ← черного перца",
+      "Земля и грибы ← подлеска",
+      "Табак ← табачного"
+    ]
+  },
+  {
+    "slug": "agora-terruarnoe-kaberne-sovinon",
+    "name": "AGORA Терруарное Каберне совиньон",
+    "category": "Красное",
+    "description": "Вкус насыщенный, с оттенками чернослива и вяленой вишни, структурированный, мощные танины подчеркивают шик и оттенки фруктовой кислотности. Аромат выразительный, с оттенками корицы, ванили, мускатного ореха, вишни и специй. \n\nВыдержка в бочках из французского дуба от 12 месяцев.",
+    "summary": "Выраженные танины",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "фруктовая",
+        "quotes": [
+          "фруктовой кислотности"
+        ]
+      },
+      "tannin": {
+        "state": "known",
+        "label": "выраженные",
+        "descriptor": null,
+        "quotes": [
+          "мощные танины"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Чернослив ← чернослива",
+      "Вяленая вишня ← вяленой вишни",
+      "Корица ← корицы",
+      "Ваниль ← ванили",
+      "Мускатный орех ← мускатного ореха",
+      "Вишня ← вишни"
+    ]
+  },
+  {
+    "slug": "massandra-muskatel-chernyy-krasnye-sorta-vinograda-krasnoe-sladkoe-16",
+    "name": "Мускатель черный",
+    "category": "Красное",
+    "description": "Аромат интенсивный: мускатные тона в сочетании с оттенками спелых красных фруктов; многогранный — вишня, слива, чернослив, кофе и шоколад; вкус бархатистый, с тонами тёмного шоколада, кофейно-лакричными нотами и лёгким послевкусием сушёного чернослива. К утке в ягодном соусе, шоколадным десертам, выдержанным сырам.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктов",
+      "Вишня ← вишня",
+      "Слива ← слива",
+      "Чернослив ← чернослив",
+      "Кофе ← кофе",
+      "Шоколад ← шоколад"
+    ]
+  },
+  {
+    "slug": "agora-yachting-shiraz",
+    "name": "Agora Yachting Shiraz",
+    "category": "Красное",
+    "description": "Вкус насыщенный, достаточно мягкий, сопровождающийся долгим послевкусием с оттенками спелых фруктов. Аромат богатый, интенсивный, с тонами специй, пряных трав и ягодные ноты. \n\nСбор винограда происходит вручную с последующим охлаждением в специальных холодильных камерах для сохранения нюансов сортовых характеристик. Ферментация при контролируемой температуре с последующей выдержкой в дубовых бочках 12 и более месяцев.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктов",
+      "Пряности (обобщ.) ← пряных",
+      "Травы (обобщ.) ← трав",
+      "Ягоды (обобщ.) ← ягодные"
+    ]
+  },
+  {
+    "slug": "marquetry-syrah",
+    "name": "Marquetry syrah",
+    "category": "Красное",
+    "description": "Аромат спелых красных и черных ягод элегантно и плавно перетекает в мягкий вкус этого гастрономичного и дружелюбного вина.\n\nВино органическое, подтверждено сертификатом РФ.\n\n0 дней холодной мацерации при 5 °C, после ферментация на протяжении 15 дней при 18-24 °C, в процессе которой ежедневно проводились ремонтаж и 4 раза делистаж с отделением и сбросом косточки. После спиртового брожения снятие самотечных фракций молодого вина и прессование стекшей мезги, фракции объединяются. Проведение яблочно-молочного брожения в стали в течение 20 дней. Выдержка 12 месяцев в новых дубовых бочках 225 литров.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Тёмные ягоды (обобщ.) ← черных ягод"
+    ]
+  },
+  {
+    "slug": "fanagoriya-fanagoria-extra-brut-rose-2019-pino-nuar-igristoe-bryut-rozovoe-ekstra-bryut-12",
+    "name": "Fanagoria Extra Brut Rose 2019",
+    "category": "Розовое",
+    "description": "В аромате красные ягоды, цитрус, бриошь. Вкус свежий, с ягодно-сливочным послевкусием.",
+    "summary": "Экстра брют",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Экстра брют",
+        "descriptor": null,
+        "sparkling": true,
+        "quotes": [
+          "Extra Brut"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Красные ягоды (обобщ.) ← красные ягоды",
+      "Цитрусы (обобщ.) ← цитрус",
+      "Выпечка ← бриошь",
+      "Ягоды (обобщ.) ← ягодно"
+    ]
+  },
+  {
+    "slug": "sober-bash-kaberne-fran-rozovoe-suhoe-12",
+    "name": "Каберне Фран",
+    "category": "Розовое",
+    "description": "В аромате ноты красных спелых ягод с тонким леденцовым оттенком. Во вкусе освежающая кислотность, ягоды и леденцы.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "освежающая",
+        "quotes": [
+          "освежающая кислотность"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Ягоды (обобщ.) ← ягод",
+      "Леденцы ← леденцовым"
+    ]
+  },
+  {
+    "slug": "ivan-ksenia-kruz-argonne-pinot-noir-pino-nuar-rozovoe-suhoe-122",
+    "name": "Argonne Pinot Noir",
+    "category": "Розовое",
+    "description": "Вкус: Фруктово-сливочный. Тона лесной брусники, спелой клубники, малины, оттенки припудренных белых цветов, с легким цветочным акцентом.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← Фруктово",
+      "Брусника ← брусники",
+      "Клубника ← клубники",
+      "Малина ← малины",
+      "Белые цветы ← белых цветов"
+    ]
+  },
+  {
+    "slug": "aya-organic-wine-vineyards-blush-3-kaberne-fran-rozovoe-ekstra-bryut-132",
+    "name": "Blush #3",
+    "category": "Розовое",
+    "description": "Вкус питкий и гармоничный, с освежающей фруктово-ягодной кислотностью и деликатным пряным послевкусием. Аромат свежий с нотами кислых ягод: малины и клюквы.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "фруктовая, освежающая",
+        "quotes": [
+          "освежающей фруктово-ягодной кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Пряности (обобщ.) ← пряным",
+      "Малина ← малины",
+      "Клюква ← клюквы"
+    ]
+  },
+  {
+    "slug": "chateau-andre-tsvaygelt-roze-rozovoe-suhoe-13",
+    "name": "Цвайгельт розе",
+    "category": "Розовое",
+    "description": "Вкус: Гармоничный с яркой фруктовой составляющей (лесные ягоды, клубника) и умеренной кислотностью. Свежий с фруктовыми и цветочными нотами, с акцентом на цитрусы, вишню и персики.",
+    "summary": "Средняя кислотность",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "known",
+        "label": "средняя",
+        "descriptor": null,
+        "quotes": [
+          "умеренной кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Лесные ягоды (обобщ.) ← лесные ягоды",
+      "Клубника ← клубника",
+      "Цветы (обобщ.) ← цветочными",
+      "Цитрусы (обобщ.) ← цитрусы",
+      "Вишня ← вишню",
+      "Персик ← персики"
+    ]
+  },
+  {
+    "slug": "kuban-vino-flyor-dyu-syud-roze-de-tamane-traminer-rozovyy-rozovoe-suhoe-125",
+    "name": "Флёр дю Сюд Розе де Тамань",
+    "category": "Розовое",
+    "description": "Вино демонстрирует мягкий, сбалансированный, гармоничный, свежий вкус с оттенками лесных ягод, цветов, цитрусовых фруктов и сливочной карамели, плавно переходящими в длительное послевкусие.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Лесные ягоды (обобщ.) ← лесных ягод",
+      "Цветы (обобщ.) ← цветов",
+      "Цитрусы (обобщ.) ← цитрусовых",
+      "Фрукты (обобщ.) ← фруктов",
+      "Карамель ← карамели"
+    ]
+  },
+  {
+    "slug": "zhemchuzhnaya-9-pino-nuar-muskat-rozovyj",
+    "name": "Жемчужная 9 Пино Нуар, Мускат Розовый",
+    "category": "Розовое",
+    "description": "Вкус и аромат: первая клубника, лепестки роз, лёгкий намёк на медовые травы. Воздушное, освежающее, с бархатной ягодной волной. \nСочетания: креветки, салаты с клубникой и козьим сыром, куриная грудка на гриле.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Клубника ← клубника",
+      "Роза ← роз",
+      "Мёд ← медовые",
+      "Травы (обобщ.) ← травы"
+    ]
+  },
+  {
+    "slug": "kuban-vino-aristov-kyuve-aleksandr-rose-de-pinot-pino-nuar-rozovoe-ekstra-bryut-12",
+    "name": "Аристов. Кюве Александр Rose de Pinot",
+    "category": "Розовое",
+    "description": "Элегантный аромат собран из нот малины, клубники, розового персика, цедры, фенхеля и корочки ягодного пирога. Вкус гладкий, сбалансированный, с отличной кислотной структурой и хрустящей морозной свежестью. Элегантно, стройно, комплексно.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Малина ← малины",
+      "Клубника ← клубники",
+      "Персик ← персика",
+      "Цедра ← цедры",
+      "Фенхель ← фенхеля"
+    ]
+  },
+  {
+    "slug": "roze-malbek",
+    "name": "Розе Мальбек",
+    "category": "Розовое",
+    "description": "Вкус яркий, сочный, сбалансированный, с фруктово-ягодным профилем и утонченной кислинкой в послевкусии. Аромат яркий, сочный, сбалансированный, с фруктово-ягодным профилем и утонченной кислинкой в послевкусии.\n\nБрожение в стали. Холодная мацерация в пневматическом прессе 1 час, ферментация 25 дней в стали при 16-17° С. Выдержка 8 мес. на тонком дрожжевом осадке в стали.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктово",
+      "Ягоды (обобщ.) ← ягодным"
+    ]
+  },
+  {
+    "slug": "vinodelnya-uzunov-roze-ekstra-bryut-kaberne-sovinon-rozovoe-127",
+    "name": "Розе экстра брют",
+    "category": "Розовое",
+    "description": "Вино приготовлено из винограда сортов Каберне Совиньон и Каберне Фран. \nОднократное брожение при низкой температуре в стальной емкости и выдержка на полном дрожжевом осадке 6 месяцев. Яркое, свежее, очень ягодное и сочное игристое. Аромат яркий и комплексный. В первом носе раскрываются тона ежевики, смородины, барбариса. Далее следуют ноты садовой розы, медоносных цветов и ягодных леденцов. Вкус стройный, сбалансированный, с сочной гастрономичной кислотностью и тонким ягодным послевкусием. Свежо, колко, ягодно.",
+    "summary": "Экстра брют",
+    "scales": {
+      "sweetness": {
+        "state": "known",
+        "label": "Экстра брют",
+        "descriptor": null,
+        "sparkling": true,
+        "quotes": [
+          "экстра брют"
+        ]
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Ежевика ← ежевики",
+      "Смородина ← смородины",
+      "Барбарис ← барбариса",
+      "Роза ← розы",
+      "Леденцы ← леденцов"
+    ]
+  },
+  {
+    "slug": "oxana-istratova-wine-rkatsiteli-2024-oranzhevoe-suhoe-12",
+    "name": "Ркацители 2024",
+    "category": "Оранжевое",
+    "description": "Вкус: Округлый, хорошая кислотность, мягкий танин,сухофрукты. в аромате спелая айва, абрикосы, степные медоносы",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "хорошая",
+        "quotes": [
+          "хорошая кислотность"
+        ]
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "мягкие",
+        "quotes": [
+          "мягкий танин"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Сухофрукты (обобщ.) ← сухофрукты",
+      "Айва ← айва",
+      "Абрикос ← абрикосы"
+    ]
+  },
+  {
+    "slug": "rem-akchurin-muskat-oranzh-oranzhevoe-suhoe-115",
+    "name": "Мускат Оранж",
+    "category": "Оранжевое",
+    "description": "Вкус: Насыщенный с деликатной пряностью и продолжительным послевкусием. Тона сухофруктов в сочетании с медом, степными травами, оттенки прянстей.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Пряности (обобщ.) ← пряностью",
+      "Сухофрукты (обобщ.) ← сухофруктов",
+      "Мёд ← медом",
+      "Травы (обобщ.) ← травами"
+    ]
+  },
+  {
+    "slug": "loco-cimbali-oranzh-muskat-oranzhevoe-suhoe-127",
+    "name": "Оранж",
+    "category": "Оранжевое",
+    "description": "Вкус: Объемный, поторяющий аромат, с мягкими танинами и легкой горчинкой. Насыщенный аромат кураги, изюма, сладких специй, легие тона воска и ладана.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "мягкие",
+        "quotes": [
+          "мягкими танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Курага ← кураги",
+      "Изюм ← изюма"
+    ]
+  },
+  {
+    "slug": "denisov-winery-tsitron-oranzh-tsitronnyy-magaracha-oranzhevoe-suhoe-105",
+    "name": "Цитрон оранж",
+    "category": "Оранжевое",
+    "description": "Вкус: Сбалансированный, питкий, с фруктово-пряными оттенками и тонкими цветочными нюансами в долгом послевкусии. Гармоничный, яркий, с оттенками фруктов, пряностей, сладких специй и меда.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Фрукты (обобщ.) ← фруктово",
+      "Пряности (обобщ.) ← пряными",
+      "Цветы (обобщ.) ← цветочными",
+      "Мёд ← меда"
+    ]
+  },
+  {
+    "slug": "belbek-muskat-oranzh-muskat-belyy-oranzhevoe-suhoe-125",
+    "name": "Мускат Оранж",
+    "category": "Оранжевое",
+    "description": "Вкус: Выразительный, насыщенный, свежий и сочный, с пряными тонами, с едва заметным танином и освежающей кислотностью в послевкусии. Богатый, с нотами персика, личи, апельсиновой цедры и ванили.",
+    "summary": "Лёгкие танины",
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "освежающая",
+        "quotes": [
+          "освежающей кислотностью"
+        ]
+      },
+      "tannin": {
+        "state": "known",
+        "label": "лёгкие",
+        "descriptor": null,
+        "quotes": [
+          "едва заметным танином"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Пряности (обобщ.) ← пряными",
+      "Персик ← персика",
+      "Личи ← личи",
+      "Апельсин ← апельсиновой",
+      "Цедра ← цедры",
+      "Ваниль ← ванили"
+    ]
+  },
+  {
+    "slug": "abrau-dyurso-abrau-estates-oranzh-tsitronnyy-magaracha-oranzhevoe-suhoe-105",
+    "name": "Abrau Estates Оранж",
+    "category": "Оранжевое",
+    "description": "В аромате медовые и цитрусовые оттенки, ноты спелых и сочных белых фруктов, пряные тона полевых трав с нюансами мяты. Вкус сбалансированный с сочными, но тонкими танинами, цитрусовой легкой кислинкой и медовой сладостью.",
+    "summary": null,
+    "scales": {
+      "sweetness": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "sparkling": false,
+        "quotes": []
+      },
+      "acidity": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      },
+      "tannin": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": "тонкие",
+        "quotes": [
+          "тонкими танинами"
+        ]
+      },
+      "body": {
+        "state": "unknown",
+        "label": null,
+        "descriptor": null,
+        "quotes": []
+      }
+    },
+    "notes": [
+      "Мёд ← медовые",
+      "Цитрусы (обобщ.) ← цитрусовые",
+      "Фрукты (обобщ.) ← фруктов",
+      "Пряности (обобщ.) ← пряные",
+      "Мята ← мяты"
+    ]
+  }
+]

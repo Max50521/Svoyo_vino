@@ -1,0 +1,218 @@
+{
+  "base": "http://127.0.0.1:8080",
+  "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "date": "2026-09-28T16:47:28.923Z",
+  "passed": 40,
+  "total": 40,
+  "results": [
+    {
+      "name": "layout 360px: no horizontal scroll, nothing outside, no clipped labels",
+      "ok": true,
+      "detail": "{\"W\":360,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "tap targets 360px ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "map 360px shows list",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layout 360px with open map",
+      "ok": true,
+      "detail": "{\"W\":360,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "layout 390px: no horizontal scroll, nothing outside, no clipped labels",
+      "ok": true,
+      "detail": "{\"W\":390,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "tap targets 390px ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "map 390px shows list",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layout 390px with open map",
+      "ok": true,
+      "detail": "{\"W\":390,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "layout 768px: no horizontal scroll, nothing outside, no clipped labels",
+      "ok": true,
+      "detail": "{\"W\":768,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "tap targets 768px ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "map 768px shows wheel",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layout 768px with open map",
+      "ok": true,
+      "detail": "{\"W\":768,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "wheel labels 768px stay inside the card",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layout 1440px: no horizontal scroll, nothing outside, no clipped labels",
+      "ok": true,
+      "detail": "{\"W\":1440,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "tap targets 1440px ≥ 44px",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "map 1440px shows wheel",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "layout 1440px with open map",
+      "ok": true,
+      "detail": "{\"W\":1440,\"overflow\":false,\"outside\":0,\"small\":[],\"clipped\":0}"
+    },
+    {
+      "name": "wheel labels 1440px stay inside the card",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "help opens on tap",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "only one help open at a time",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "note tap shows the source phrase with highlight",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "family opens panel with notes and quotes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "one family panel at a time",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Escape closes the panel and returns focus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "«На чём основано» lists quotes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "caption about associations is visible",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "text contrast in the passport ≥ 4.5:1",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "portal link is built from the slug",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "wheel sector opens with Enter",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Escape on wheel returns focus to the sector",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "partial card: unknown scales show a neutral label",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "sparkling card marks the sparkling scale",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "reload renders the same passport (SSR + hydration)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "404 card: «Вино не найдено», no passport",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "uncertain scan: warning and candidates shown before the passport",
+      "ok": true,
+      "detail": "{\"slug\":\"/wine/denisov_rubin_klaret_krasnaya_strelka\",\"notice\":true,\"alts\":true,\"order\":true}"
+    },
+    {
+      "name": "no scale facts → one compact line, no empty markers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "candidate switch updates the whole passport",
+      "ok": true,
+      "detail": "/wine/denisov_rubin_klaret_krasnaya_strelka → /wine/denisov_pino_noir_klaret"
+    },
+    {
+      "name": "not_found scan: no card and no passport",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no hydration warnings",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no uncaught exceptions",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "screenshots": {
+    "390": "screenshots/rich-390-map-open.png",
+    "1440": "screenshots/rich-1440-map-open.png",
+    "evidence": "screenshots/rich-390-evidence.png",
+    "partial": "screenshots/partial-390.png",
+    "sparkling": "screenshots/sparkling-390.png",
+    "uncertain": "screenshots/uncertain-390.png"
+  },
+  "console": []
+}

@@ -83,7 +83,7 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile full up
 |---|---|---|
 | `POST` | `/v1/eval/predict` (multipart `image`) | `{"slug": "..."}` — контракт скрипта кейсодержателя |
 | `POST` | `/v1/search` (multipart `image`) | `{top1, top5: [{slug, name, winery, score, image_url}], margin, confident, status, engine, model, latency_ms}` |
-| `GET` | `/v1/wines/:slug` | карточка: `slug, name, category, color, region, grapes, description, winery, image_url` |
+| `GET` | `/v1/wines/:slug` | карточка: `slug, name, category, color, region, grapes, description, winery, image_url` + необязательное `taste_passport` (см. «Паспорт вкуса») |
 | `GET` | `/v1/wines/:slug/image` | фото из каталога |
 | `GET` | `/v1/wines/:slug/similar?limit=8` | похожие вина по визуальному сходству эталонов |
 | `GET` | `/health` | `{status, engine, model, db: {wines, indexed}, ml}` |
@@ -94,7 +94,19 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile full up
 
 ## Интерфейс
 
-`/` — сканер (камера/галерея), `/wine/:slug` — карточка в стиле vino-svoe.ru: фото, характеристики, описание, «Не то вино?» (остальные кандидаты), «Похожие вина».
+`/` — сканер (камера/галерея), `/wine/:slug` — карточка в стиле vino-svoe.ru: фото, характеристики, «Не то вино?» (остальные кандидаты), «Паспорт вкуса», описание, ссылка «Полная карточка на Своё Вино», «Похожие по этикетке».
+
+### Паспорт вкуса
+
+Функция после поиска: переводит описание конкретной карточки на простой язык.
+
+- **«Какое оно на вкус»** — сладость, кислотность, танины, тело вина: три маркера и обязательная словесная подпись, справка по нажатию на термин. У игристых своя шкала сладости (брют натюр … сладкое).
+- **«Ароматы и вкусовые ноты»** — до шести нот с оригинальными контурными SVG-рисунками; «Раскрыть карту ароматов» группирует все ноты по семействам (равные сектора на широком экране, список на телефоне). Размер сектора не означает долю аромата.
+- **«На чём основано»** — исходная фраза для каждого вывода.
+
+Источник — только название и описание открытой карточки: сорт, регион, slug и фото не используются как источник вкуса; нет pH, г/л и «процентов уверенности». Если факта нет, показывается «В описании не уточнено»; несовместимые утверждения дают «Противоречивые данные». **Характеристики заполнены не у всех вин**: на каталоге из 2103 вин известна сладость у 373, кислотность у 290, тело у 181, танины у 68; хотя бы одна нота — у 2073 ([покрытие](reports/taste-passport/coverage.md), [ручная проверка 50 карточек](reports/taste-passport/manual-review.md), [отчёт](reports/taste-passport/REPORT.md)).
+
+`taste_passport`: `{ version, summary, scales: { sweetness, acidity, tannin, body }, notes, families }`; шкала — `{ state: known|unknown|conflict, level: 1|2|3|null, label, descriptor, evidence[] }`, нота — `{ id, label, family, generic, evidence[] }`, evidence — `{ field, quote, start, end, rule }`. Анализатор — детерминированная функция без сети (`web/server/taste/`), ~0,15 мс на вино; при его сбое поле равно `null`, карточка открывается как раньше. Старый сервер без поля фронтенд тоже понимает.
 
 ## Переменные окружения
 
@@ -172,7 +184,9 @@ bash eval/participant_test.sh --images-dir eval/queries --manifest eval/queries.
 
 ```powershell
 cd ml;  .venv\Scripts\python -m pytest     # нормализация, сопоставление каталога, /embed, аугментации
-cd web; npx vitest run                     # контракт API на stub-движке
+cd web; npx vitest run                     # контракт API на stub-движке + анализатор паспорта вкуса + маршрут карточки
+cd web; npx vitest run -c vitest.scripts.config.ts   # отчёт покрытия паспорта на полном CSV (нужен data/raw)
+cd web; node scripts/taste-browser-check.mjs         # браузерная проверка паспорта на живом стенде (Chrome/Edge, CDP)
 ```
 
 ## Ограничения
