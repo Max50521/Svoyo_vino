@@ -1,9 +1,9 @@
 {
   "base": "http://127.0.0.1:8080",
   "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "date": "2026-09-28T16:47:28.923Z",
-  "passed": 40,
-  "total": 40,
+  "date": "2026-09-28T17:40:00.745Z",
+  "passed": 42,
+  "total": 42,
   "results": [
     {
       "name": "layout 360px: no horizontal scroll, nothing outside, no clipped labels",
@@ -196,6 +196,16 @@
       "detail": ""
     },
     {
+      "name": "card shows taste analogs of other wineries with reasons",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "not_found with a grape on the label shows analogs and what was read",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "no hydration warnings",
       "ok": true,
       "detail": ""
@@ -212,7 +222,8 @@
     "evidence": "screenshots/rich-390-evidence.png",
     "partial": "screenshots/partial-390.png",
     "sparkling": "screenshots/sparkling-390.png",
-    "uncertain": "screenshots/uncertain-390.png"
+    "uncertain": "screenshots/uncertain-390.png",
+    "notFoundAnalogs": "screenshots/not-found-analogs-390.png"
   },
   "console": []
 }

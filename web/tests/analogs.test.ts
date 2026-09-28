@@ -73,6 +73,15 @@ describe('analogs from the label of an unknown wine', () => {
     expect(analogs[0]!.reasons[0]).toBe('Сорт с этикетки: Саперави')
   })
 
+  it('keeps sparkling with sparkling', () => {
+    const cat = [
+      profileOf({ slug: 'still', name: 'Пино гри', winery: 'А', category: 'Белое', grapes: 'Пино Гри', description: 'Аромат груши.' }),
+      profileOf({ slug: 'fizz', name: 'Игристое Пино гри', winery: 'Б', category: 'Белое', grapes: 'Пино Гри', description: 'Игристое вино, аромат груши.' }),
+    ]
+    expect(findLabelAnalogs('PINOT GRIS extra brut', cat).analogs.map(a => a.slug)).toEqual(['fizz'])
+    expect(findAnalogs(cat[1]!, cat)).toEqual([])
+  })
+
   it('gives nothing without a grape on the label', () => {
     expect(findLabelAnalogs('Шато 2019 резерв', catalog).analogs).toEqual([])
   })

@@ -22,6 +22,8 @@ export interface TasteProfile {
   wineryKey: string
   category: string | null
   grapes: string[]
+  /** sparkling wine by name/description, even when the sweetness category is not stated */
+  sparkling: boolean
   sweetness: { label: string, level: number, sparkling: boolean } | null
   levels: Partial<Record<Exclude<ScaleId, 'sweetness'>, { level: number, label: string }>>
   notes: Map<string, string>
@@ -64,6 +66,7 @@ export function profileOf(w: CatalogWine, passport: TastePassport = buildTastePa
     wineryKey: norm(w.winery),
     category: w.category || null,
     grapes: splitGrapes(w.grapes),
+    sparkling: !!s.sweetness.sparkling,
     sweetness: s.sweetness.state === 'known' ? { label: s.sweetness.label!, level: s.sweetness.level!, sparkling: !!s.sweetness.sparkling } : null,
     levels,
     notes: new Map(passport.notes.filter(n => !n.generic).map(n => [n.id, n.label])),
@@ -106,6 +109,8 @@ export function findAnalogs(target: TasteProfile, catalog: TasteProfile[], limit
   for (const c of catalog) {
     if (c.slug === target.slug || (target.wineryKey && c.wineryKey === target.wineryKey)) continue
     if (target.category && c.category && c.category !== target.category) continue
+    // sparkling and still wines are not analogs of each other
+    if (target.sparkling !== c.sparkling) continue
     if (!sweetnessCompatible(target.sweetness, c.sweetness)) continue
     let score = 0
     const reasons: string[] = []
@@ -206,6 +211,7 @@ export function findLabelAnalogs(text: string, catalog: TasteProfile[], exclude:
     // "из других виноделен": skip the producer named on the label
     if (c.wineryKey.length >= 4 && t.includes(` ${c.wineryKey} `)) continue
     if (hints.category && c.category && c.category !== hints.category) continue
+    if (hints.sweetness?.sparkling && !c.sparkling) continue
     if (!sweetnessCompatible(hints.sweetness && { ...hints.sweetness }, c.sweetness)) continue
     const grapes = hints.grapes.filter(g => c.grapes.some(x => sameGrape(g, x)))
     if (!grapes.length) continue
@@ -216,6 +222,7 @@ export function findLabelAnalogs(text: string, catalog: TasteProfile[], exclude:
     if (sameSweet) score += 2
     const style = styleReason(hints.category && c.category === hints.category ? hints.category : null, sameSweet ? hints.sweetness : null)
     if (style) reasons.push(style)
+    else if (hints.sweetness?.sparkling) reasons.push('Тоже игристое')
     score += Math.min(c.notes.size, 6) * 0.1 // prefer cards with a described taste
     scored.push({ slug: c.slug, name: c.name, winery: c.winery, score: round(score), reasons })
   }
