@@ -1,4 +1,7 @@
 // Shapes of the public API responses (see README "API").
+import type { TastePassport } from './taste'
+
+export type * from './taste'
 export type RecognitionStatus = 'confident' | 'uncertain' | 'not_found'
 
 export interface WineShort {
@@ -30,4 +33,6 @@ export interface Wine {
   description: string | null
   winery: string | null
   image_url: string
+  /** Absent on servers before the taste passport; null when the analyzer failed. */
+  taste_passport?: TastePassport | null
 }
