@@ -1,6 +1,7 @@
 data/
 *.zip
 *.pdf
+!docs/presentation.pdf
 node_modules/
 .nuxt/
 .output/

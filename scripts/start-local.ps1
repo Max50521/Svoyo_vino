@@ -1,4 +1,11 @@
-param([string]$NodeExe='node', [switch]$PortableDb, [switch]$NoWait)
+<#
+Start the service after scripts/setup.ps1: ml (SigLIP 2 + OCR) and web (Nuxt) in the background,
+plus the portable PostgreSQL (PGlite) when .env points to port 5433. Waits for GET /ready.
+  .\scripts\start-local.ps1            # -> http://127.0.0.1:8080
+  .\scripts\stop-local.ps1             # stop everything
+Logs and PIDs: data/runtime. Re-running does not start duplicate servers.
+#>
+param([string]$NodeExe='', [switch]$PortableDb, [switch]$NoWait)
 $ErrorActionPreference='Stop'
 $Root=Split-Path -Parent $PSScriptRoot
 Set-Location $Root
@@ -10,6 +17,12 @@ Get-Content .env | ForEach-Object {
   }
 }
 $env:PYTHONUTF8='1'
+if (-not $NodeExe) {
+  $defaultNode = Join-Path $env:ProgramFiles 'nodejs\node.exe'
+  $NodeExe = if (Get-Command node -ErrorAction SilentlyContinue) { (Get-Command node).Source } elseif (Test-Path $defaultNode) { $defaultNode } else { throw 'Node.js not found: winget install OpenJS.NodeJS.LTS' }
+}
+if (-not $PortableDb -and $env:DATABASE_URL -match ':5433/') { $PortableDb = $true }
+if (-not (Test-Path 'web/.output/server/index.mjs')) { throw 'web is not built: run scripts/setup.ps1 (or: cd web; npm ci; npm run build)' }
 $env:HF_HUB_OFFLINE='1'
 $run=Join-Path $Root 'data/runtime'
 New-Item -ItemType Directory -Force $run | Out-Null

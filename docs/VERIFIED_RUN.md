@@ -2,12 +2,14 @@
 
 Состояние после улучшения Top-1, 28.09.2026: реальный SigLIP 2 + EasyOCR, PostgreSQL/pgvector, 2080 карточек и 6240 векторов. Top-1 59/64 (92,19%), Top-5 64/64. Новые функции кислотности и иллюстраций вкуса не добавлены. Свежие доказательства — `reports/recognition`, прежний исходный прогон — `reports/verification/ocr-rows.json`.
 
-## На этом компьютере
+## Windows без Docker — проверено с нуля 28.09.2026
 
-Из корня проекта:
+Из корня проекта (RTX 4060, Python 3.12, Node 24, 7-Zip):
 
 ```powershell
-.\scripts\start-local.ps1 -PortableDb -NodeExe "C:/Users/Vlad1/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe"
+.\scripts\setup.ps1 -DatasetDir "C:\путь\Датасет" -PortableDb   # один раз; или -DatasetZip "...\Датасет.zip"
+.\scripts\start-local.ps1                                       # Node и PGlite находятся сами
+.\scripts\stop-local.ps1
 ```
 
 Открыть http://127.0.0.1:8080. Скрипт запускает процессы скрыто, ожидает `/ready`, повторный запуск не создаёт копии слушающих серверов. Уже настроены `.env`, `ml/.venv`, `web/.output`, веса в `data/model-cache` и `data/easyocr`, каталог и база `data/local-pg`. Журналы и PID находятся в `data/runtime`. Большие данные и `.env` не входят в Git.
