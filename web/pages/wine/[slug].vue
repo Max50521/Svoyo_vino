@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Wine, WineShort } from '~/types/api'
+import type { Analog, Wine, WineShort } from '~/types/api'
 
 // Wine card in the vino-svoe.ru style + recognition alternatives + similar wines.
 const route = useRoute()
@@ -7,6 +7,7 @@ const slug = computed(() => String(route.params.slug))
 const scan = useScan()
 
 const { data: wine, error, refresh } = await useFetch<Wine>(() => `/v1/wines/${encodeURIComponent(slug.value)}`)
+const { data: analogs } = useLazyFetch<Analog[]>(() => `/v1/wines/${encodeURIComponent(slug.value)}/analogs?limit=6`, { default: () => [], server: false, timeout: 5000, retry: 0 })
 const { data: similar } = useLazyFetch<WineShort[]>(() => `/v1/wines/${encodeURIComponent(slug.value)}/similar?limit=8`, { default: () => [], server: false, timeout: 5000, retry: 0 })
 
 useHead(() => ({ title: wine.value ? `${wine.value.name} — Своё вино` : 'Вино — Своё вино' }))
@@ -92,6 +93,12 @@ const specs = computed(() => {
 
       <a class="portal-link" :href="portalUrl" target="_blank" rel="noopener">Полная карточка на Своё Вино <span aria-hidden="true">↗</span></a>
 
+      <section v-if="analogs?.length" class="analogs-block">
+        <h2 class="section-title">Похожие по вкусу — другие винодельни</h2>
+        <p class="muted analogs-note">По паспорту вкуса: сорт, стиль и ноты из описаний карточек, а не внешний вид этикетки.</p>
+        <AnalogGrid :analogs="analogs" />
+      </section>
+
       <section v-if="similar?.length">
         <h2 class="section-title">Похожие по этикетке</h2>
         <WineGrid :wines="similar" />
@@ -120,6 +127,7 @@ const specs = computed(() => {
 .spec dd { margin: 0; font-weight: 600; font-size: 15px; }
 .card__desc { line-height: 1.6; margin: 0; white-space: pre-line; }
 .desc .section-title { margin-top: 28px; }
+.analogs-note { font-size: 13px; margin: -4px 0 12px; color: var(--text-muted); }
 .portal-link {
   display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 12px;
   color: var(--wine); font-weight: 600; text-decoration: underline; text-underline-offset: 3px;

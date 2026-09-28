@@ -7,6 +7,12 @@ const camera = ref<HTMLInputElement>()
 const gallery = ref<HTMLInputElement>()
 
 const notFound = computed(() => scan.value?.result.status === 'not_found' ? scan.value : null)
+const hintText = computed(() => {
+  const h = notFound.value?.result.label_hints
+  if (!h) return ''
+  const style = [h.category, h.sweetness?.label].filter(Boolean).join(' ').toLowerCase()
+  return [h.grapes.map((g: string) => g.charAt(0).toUpperCase() + g.slice(1)).join(', '), style].filter(Boolean).join(' · ')
+})
 
 onMounted(() => {
   // a finished "not found" scan stays on screen; anything else starts fresh
@@ -69,6 +75,12 @@ async function onFile(e: Event) {
       </div>
       <h2 class="section-title">Похожие по этикетке</h2>
       <WineGrid :wines="notFound.result.top5" />
+
+      <template v-if="notFound.result.analogs?.length">
+        <h2 class="section-title">Аналоги из других виноделен</h2>
+        <p class="hint">На этикетке прочитано: {{ hintText }}. Подобрали вина того же сорта у других производителей.</p>
+        <AnalogGrid :analogs="notFound.result.analogs" />
+      </template>
     </section>
 
     <ul v-else-if="!loading" class="tips muted">
@@ -91,6 +103,7 @@ async function onFile(e: Event) {
 .not-found { margin-top: 8px; }
 .photo { width: 64px; height: 84px; flex: none; object-fit: cover; border-radius: 8px; }
 .error { color: var(--wine); }
+.hint { font-size: 14px; line-height: 1.45; color: var(--text-muted); margin: -4px 0 12px; }
 .loader { display: flex; justify-content: center; gap: 8px; margin: 24px 0; }
 .loader span { width: 10px; height: 10px; border-radius: 50%; background: var(--wine); animation: pulse 1s infinite ease-in-out; }
 .loader span:nth-child(2) { animation-delay: .15s; }

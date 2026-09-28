@@ -24,6 +24,7 @@ const PARTIAL = 'zolotoe-pole-legend-of-crimea-chardonnay-shardone-beloe-suhoe-1
 const SPARKLING = 'abrau-dyurso-imperatorskoe-bryut-shardone-beloe-12'
 const UNCERTAIN_PHOTO = join(ROOT, 'eval/real/photos/48.98_02-09-2026_18-34-15.webp')
 const NOT_FOUND_PHOTO = join(ROOT, 'eval/real/photos/1.73_06-09-2026_14-54-06.webp')
+const LABEL_GRAPE_PHOTO = join(ROOT, 'eval/real/photos/95.07_01-09-2026_16-15-35.webp')
 const WIDTHS = [360, 390, 768, 1440]
 
 // ---- minimal CDP client ----
@@ -217,6 +218,17 @@ await open('/')
 await uploadPhoto(NOT_FOUND_PHOTO)
 await waitFor(`document.querySelector('.not-found')`, 30000)
 check('not_found scan: no card and no passport', await js(`return location.pathname==='/' && !document.querySelector('.tp')`))
+
+// Analogs: on a card (by taste passport) and for an unknown wine whose label names the grape.
+await open(`/wine/${RICH}`)
+await waitFor(`document.querySelector('.analogs-block .analog')`, 15000)
+check('card shows taste analogs of other wineries with reasons', await js(`const w=document.querySelector('.card__winery').textContent.trim(); const items=[...document.querySelectorAll('.analogs-block .analog')]; return items.length>0 && items.every(a=>a.querySelector('.analog__reason') && a.querySelector('.analog__winery').textContent.trim()!==w)`))
+await open('/')
+await uploadPhoto(LABEL_GRAPE_PHOTO)
+await waitFor(`document.querySelector('.not-found')`, 30000)
+await sleep(300)
+check('not_found with a grape on the label shows analogs and what was read', await js(`return document.querySelectorAll('.not-found .analog').length>0 && /На этикетке прочитано: .+/.test(document.querySelector('.not-found .hint').textContent)`))
+shots.notFoundAnalogs = await shot('not-found-analogs-390', 'main', '.not-found')
 
 const hydration = consoleIssues.filter(x => /hydrat/i.test(x))
 check('no hydration warnings', !hydration.length, hydration.slice(0, 3).join(' | '))

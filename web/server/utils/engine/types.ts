@@ -14,6 +14,8 @@ export interface RecognitionResult {
   candidates: Candidate[]
   bestVisualScore: number
   diagnostics?: Record<string, unknown>
+  /** Text read on the label (OCR), when available; used for analogs of unknown wines. */
+  labelText?: string
 }
 
 export interface RecognitionEngine {

@@ -105,6 +105,7 @@ export class VectorEngine implements RecognitionEngine {
       visual: r4(c.visual),
       ...(c.text !== undefined ? { text: c.text } : {}),
     }))
-    return { candidates, bestVisualScore, diagnostics }
+    const labelText = ocr.filter(o => o.conf >= 0.3).map(o => o.text).join(' ').slice(0, 2000)
+    return { candidates, bestVisualScore, diagnostics, ...(labelText ? { labelText } : {}) }
   }
 }
