@@ -37,7 +37,7 @@
 | Near-duplicates (серии, годы) | чтение этикетки: название, винодельня, сорт, штраф за противоречия цвета/сахара/года |
 | Нормализация фото (подсказка кейсодержателя) | EXIF-поворот, обрезка полей, квадрат, зоны этикетки — одинаково для эталонов и запросов |
 | SLA < 3 с | p95 0,97 с на GPU; работает и на CPU (медленнее) |
-| README, ARCHITECTURE, воспроизводимость | этот файл, [ARCHITECTURE.md](ARCHITECTURE.md), установка одной командой, Docker Compose |
+| README, ARCHITECTURE, воспроизводимость | этот файл, [ARCHITECTURE.md](ARCHITECTURE.md), [пояснительная записка](docs/DOCUMENTATION.md), Swagger `/docs`, установка одной командой, Docker Compose |
 
 ### Функция после поиска: «Паспорт вкуса» и аналоги
 
@@ -124,6 +124,8 @@ bash scripts/start-linux.sh
 
 ## API
 
+Интерактивная документация — **Swagger UI на `/docs`** (запросы можно отправлять прямо со страницы), спецификация OpenAPI 3.1 — `/openapi.json`.
+
 | Метод | Путь | Ответ |
 |---|---|---|
 | `POST` | `/v1/eval/predict` (multipart `image`) | `{"slug": "..."}` — контракт скрипта кейсодержателя |
@@ -199,7 +201,7 @@ bash scripts/start-linux.sh
 ## Проверки
 
 ```powershell
-cd web; npm test                                     # 58 тестов: контракт API, устойчивость, паспорт, аналоги, confidence
+cd web; npm test                                     # 61 тест: контракт API, устойчивость, паспорт, аналоги, confidence, OpenAPI
 cd web; npm run typecheck; npm run build
 ml\.venv\Scripts\python -m pytest ml\tests -q        # 58 тестов ML: нормализация, каталог, OCR, сервис
 ml\.venv\Scripts\python scripts\verify_contract.py   # 20 проверок живого HTTP-контракта
@@ -224,4 +226,4 @@ cd web; npx vitest run -c vitest.scripts.config.ts   # покрытие пасп
 
 ## Документы
 
-[ARCHITECTURE.md](ARCHITECTURE.md) · [приёмка Top-1](docs/TOP1_ACCEPTANCE.md) · [проверенный запуск](docs/VERIFIED_RUN.md) · паспорт вкуса: [отчёт](reports/taste-passport/REPORT.md), [покрытие](reports/taste-passport/coverage.md), [ручная проверка](reports/taste-passport/manual-review.md) · [продуктовое решение](docs/PRODUCT_DECISION.md) · [текст выступления](docs/PITCH.md) · [презентация](docs/presentation.pdf)
+**[Пояснительная записка](docs/DOCUMENTATION.md)** — стек, архитектура, развёртывание, API, метрики · Swagger — `http://127.0.0.1:8080/docs` · [ARCHITECTURE.md](ARCHITECTURE.md) · [приёмка Top-1](docs/TOP1_ACCEPTANCE.md) · [проверенный запуск](docs/VERIFIED_RUN.md) · паспорт вкуса: [отчёт](reports/taste-passport/REPORT.md), [покрытие](reports/taste-passport/coverage.md), [ручная проверка](reports/taste-passport/manual-review.md) · [продуктовое решение](docs/PRODUCT_DECISION.md) · [текст выступления](docs/PITCH.md) · [презентация](docs/presentation.pdf)
