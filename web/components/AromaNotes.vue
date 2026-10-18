@@ -20,7 +20,9 @@ function toggle(noteId: string) { open.value = open.value === noteId ? null : no
           type="button" class="note" :class="{ 'note--open': open === n.id }"
           :aria-expanded="open === n.id" :aria-controls="`${id}-src`" @click="toggle(n.id)"
         >
-          <AromaIcon :note="n.id" :family="n.family" />
+          <span class="note__disc" :style="{ '--fam': `var(--fam-${n.family})` }" aria-hidden="true">
+            <AromaIcon :note="n.id" :family="n.family" :size="46" />
+          </span>
           <span class="note__label">{{ n.label }}</span>
         </button>
       </li>
@@ -41,10 +43,17 @@ function toggle(noteId: string) { open.value = open.value === noteId ? null : no
 .note {
   width: 100%; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 6px;
   padding: 10px 4px 8px; background: none; border: 1px solid transparent; border-radius: var(--radius-s);
-  color: var(--text); cursor: pointer; transition: background .15s, border-color .15s;
+  color: var(--text); cursor: pointer; transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
 }
-.note:hover { background: var(--sand-soft); }
-.note--open { background: var(--sand-soft); border-color: var(--sand); }
+.note__disc {
+  width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--fam) 12%, transparent); transition: background .2s, transform .2s;
+}
+.note:hover { background: var(--surface); transform: translateY(-3px); box-shadow: 0 6px 18px rgba(80, 40, 40, .08); }
+.note:hover .note__disc, .note--open .note__disc { background: color-mix(in srgb, var(--fam) 20%, transparent); }
+.note:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.note--open { background: var(--surface); border-color: var(--sand); }
+@media (prefers-reduced-motion: reduce) { .note, .note__disc { transition: none; } .note:hover { transform: none; } }
 .note__label { font-size: 14px; line-height: 1.25; text-align: center; overflow-wrap: break-word; hyphens: auto; }
 .notes__src { margin-top: 8px; padding: 10px 12px; border-left: 2px solid var(--wine); background: var(--surface); font-size: 14px; }
 .notes__src p { margin: 0 0 4px; }
