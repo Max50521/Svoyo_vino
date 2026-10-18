@@ -172,12 +172,15 @@ def resolve_file(candidates: list[Path]) -> tuple[Path | None, str]:
     return None, ""
 
 
-def build_catalog(rows: list[dict], upload_files: list[Path]) -> tuple[list[dict], list[dict]]:
+def build_catalog(rows: list[dict], upload_files: list[Path],
+                  overrides: dict[str, Path] | None = None) -> tuple[list[dict], list[dict]]:
     """Return (wines, excluded).
 
     wines: one dict per resolved slug with catalog fields, ``src_file`` and ``mapping``.
     excluded: ``{slug, photo, reason}``; reason is ``file_not_found`` | ``ambiguous_file``.
+    overrides: slug -> photo checked by eye (``mapping = "manual"``); wins over the automatic rules.
     """
+    overrides = overrides or {}
     by_slug: dict[str, dict] = {}
     for r in rows:
         slug = r[SLUG_FIELD].strip()
@@ -193,6 +196,12 @@ def build_catalog(rows: list[dict], upload_files: list[Path]) -> tuple[list[dict
     wines, excluded = [], []
     for slug, r in sorted(by_slug.items()):
         photo = r[PHOTO_FIELD].strip()
+        if slug in overrides:
+            wine = {k: (r.get(col) or "").strip() or None for k, col in CSV_FIELDS.items()}
+            wine["name"] = wine["name"] or slug
+            wine.update(slug=slug, src_file=overrides[slug], mapping="manual")
+            wines.append(wine)
+            continue
         key = name_key(photo.rsplit(".", 1)[0] if "." in photo else photo)
         candidates, via_fuzzy = (idx.get(key, []) if key else []), False
         if key and not candidates:

@@ -45,7 +45,7 @@ from PIL import Image
 from tqdm import tqdm
 
 from wine_ml.augment import field_like
-from wine_ml.config import DEVICE, MODEL_NAME, OCR_ALPHA, OCR_BETA, OCR_PROVIDER, make_ocr_engine
+from wine_ml.config import DEVICE, MODEL_NAME, OCR_ALPHA, OCR_BETA, OCR_GAMMA, OCR_PROVIDER, make_ocr_engine
 from wine_ml.db import connect, fetch_embeddings
 from wine_ml.preprocess import normalize_image
 from wine_ml.text_match import rerank
@@ -170,7 +170,7 @@ def ocr_queries(args, queries) -> list[list[dict]]:
 
 
 def rank_rows(queries, scores: np.ndarray, wines: list[str], catalog: dict, ocr: list | None,
-              k: int, alpha: float, beta: float) -> list[dict]:
+              k: int, alpha: float, beta: float, gamma: float = OCR_GAMMA) -> list[dict]:
     """Rank of the true wine per query; with OCR the visual Top-k is re-ranked by text (same code as /rerank)."""
     pos = {s: i for i, s in enumerate(wines)}
     order = np.argsort(-scores, axis=1)
@@ -181,7 +181,7 @@ def rank_rows(queries, scores: np.ndarray, wines: list[str], catalog: dict, ocr:
         if ocr is not None:
             cands = [{**{f: catalog[wines[j]].get(f) for f in ("name", "winery", "grapes", "category")},
                       "slug": wines[j], "visual": float(sc[j])} for j in od[:k]]
-            rr = rerank(ocr[qi], cands, alpha, beta)
+            rr = rerank(ocr[qi], cands, alpha, beta, gamma)
             ranked = [c["slug"] for c in rr] + ranked[k:]
             final = [rr[0]["final"], rr[1]["final"]]
         # a label may list catalog duplicates of one wine ("a|b"): any of them counts

@@ -11,7 +11,7 @@ from functools import lru_cache
 from typing import Callable
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel, ConfigDict, Field, FiniteFloat
-from wine_ml.config import MAX_UPLOAD_BYTES, OCR_ALPHA, OCR_BETA, OCR_TIMEOUT_S
+from wine_ml.config import MAX_UPLOAD_BYTES, OCR_ALPHA, OCR_BETA, OCR_GAMMA, OCR_TIMEOUT_S
 from wine_ml.preprocess import ImageTooLarge, load_image, normalize_image
 from wine_ml.text_match import rerank
 
@@ -38,6 +38,7 @@ class RerankRequest(BaseModel):
     candidates: list[RerankCandidate] = Field(max_length=50)
     alpha: FiniteFloat = Field(default=OCR_ALPHA, ge=0, le=1)
     beta: FiniteFloat = Field(default=OCR_BETA, ge=0, le=1)
+    gamma: FiniteFloat = Field(default=OCR_GAMMA, ge=0, le=1)
 
 
 def create_app(embedder_factory: Callable, ocr_factory: Callable | None = None) -> FastAPI:
@@ -155,7 +156,7 @@ def create_app(embedder_factory: Callable, ocr_factory: Callable | None = None) 
         if len({c.slug for c in req.candidates}) != len(req.candidates):
             raise HTTPException(422, 'duplicate candidate slug')
         return {'candidates':rerank([i.model_dump(exclude_none=True) for i in req.ocr],
-                                   [c.model_dump() for c in req.candidates], req.alpha, req.beta)}
+                                   [c.model_dump() for c in req.candidates], req.alpha, req.beta, req.gamma)}
     return app
 
 

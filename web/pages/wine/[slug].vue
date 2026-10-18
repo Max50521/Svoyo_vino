@@ -73,6 +73,13 @@ const specs = computed(() => {
         </div>
       </article>
 
+      <section v-if="wine.description" class="desc">
+        <h2 class="section-title">Описание</h2>
+        <p class="card__desc">{{ wine.description }}</p>
+      </section>
+
+      <a class="portal-link" :href="portalUrl" target="_blank" rel="noopener">Полная карточка на Своё Вино <span aria-hidden="true">↗</span></a>
+
       <section v-if="alternatives.length" class="alts">
         <button class="alts__toggle" :aria-expanded="showAlternatives" @click="showAlternatives = !showAlternatives">
           <span class="serif">Не то вино?</span>
@@ -85,13 +92,6 @@ const specs = computed(() => {
       </section>
 
       <TastePassport v-if="wine.taste_passport" :key="wine.slug" :passport="wine.taste_passport" :wine-name="wine.name" />
-
-      <section v-if="wine.description" class="desc">
-        <h2 class="section-title">Описание</h2>
-        <p class="card__desc">{{ wine.description }}</p>
-      </section>
-
-      <a class="portal-link" :href="portalUrl" target="_blank" rel="noopener">Полная карточка на Своё Вино <span aria-hidden="true">↗</span></a>
 
       <section v-if="analogs?.length" class="analogs-block">
         <h2 class="section-title">Похожие по вкусу — другие винодельни</h2>
