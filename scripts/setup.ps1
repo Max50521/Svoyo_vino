@@ -118,6 +118,10 @@ else {
   Get-Content db\migrations\002_views.sql | docker compose exec -T db psql -q -U wine; Check   # no-op on a fresh DB
 }
 
+Step "Catalog photos missing from the dump (vino-svoe.ru cards; optional, needs internet)"
+& $py scripts\fetch_site_photos.py
+if ($LASTEXITCODE -ne 0) { Write-Host "site photos not downloaded: those wines stay excluded" -ForegroundColor Yellow }
+
 Step "Catalog: unambiguous positions"
 & $py ml\scripts\build_catalog.py; Check
 & $py ml\scripts\load_catalog.py; Check

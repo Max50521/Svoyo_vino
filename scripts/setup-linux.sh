@@ -20,6 +20,7 @@ export EASYOCR_MODULE_PATH="$PWD/data/easyocr"
 if [[ "$mode" == --cuda ]]; then export DEVICE=cuda; else export DEVICE=cpu; fi
 docker compose up -d --wait db
 "$py" scripts/migrate_db.py
+"$py" scripts/fetch_site_photos.py || echo "site photos not downloaded: those wines stay excluded"
 "$py" ml/scripts/build_catalog.py
 "$py" ml/scripts/load_catalog.py
 "$py" ml/scripts/build_index.py --batch 4

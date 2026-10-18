@@ -30,6 +30,10 @@ def main() -> None:
     ap.add_argument("--uploads", type=Path, default=Path(
         "data/raw/strapi/prod-svoe-vino-strapi/prod-svoe-vino/strapi/uploads"))
     ap.add_argument("--out", type=Path, default=Path("data/catalog"))
+    ap.add_argument("--overrides", type=Path, default=Path("ml/catalog_overrides.csv"),
+                    help="photos matched by hand: slug,source(uploads|site),file,note")
+    ap.add_argument("--site-photos", type=Path, default=Path("data/raw/site_photos"),
+                    help="photos taken from vino-svoe.ru for wines without a photo in the dump")
     args = ap.parse_args()
     # Windows may enumerate files whose full paths exceed MAX_PATH, but is_file/open
     # silently fail without an extended-length path. Do not drop those catalog rows.
@@ -40,7 +44,16 @@ def main() -> None:
     with args.csv.open(encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
     files = [p for p in args.uploads.iterdir() if p.is_file()]
-    wines, excluded = build_catalog(rows, files)
+    overrides = {}
+    if args.overrides.exists():
+        with args.overrides.open(encoding="utf-8", newline="") as f:
+            for o in csv.DictReader(f):
+                path = (args.uploads if o["source"] == "uploads" else args.site_photos) / o["file"]
+                if path.is_file():
+                    overrides[o["slug"]] = path
+                else:  # e.g. site photos not downloaded yet: fall back to the automatic rules
+                    print(f"override skipped, file missing: {o['slug']} -> {path}")
+    wines, excluded = build_catalog(rows, files, overrides)
 
     images_dir = args.out / "images"
     images_dir.mkdir(parents=True, exist_ok=True)

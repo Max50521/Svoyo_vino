@@ -78,3 +78,19 @@ def test_build_catalog_rules(tmp_path):
     assert by["d1"]["mapping"] == by["d2"]["mapping"] == "shared_photo"
     assert by["g"]["src_file"].name == "Chernaya_Lvicza_0123456789.png"
     assert {e["slug"]: e["reason"] for e in excl} == {"e": "ambiguous_file", "f": "file_not_found"}
+
+
+def test_manual_override_wins_over_automatic_rules(tmp_path):
+    # two different labels under one name: ambiguous for the rules, resolved by eye
+    bottle_png(tmp_path / "merlo_0123456789.png", color=(90, 20, 30))
+    bottle_png(tmp_path / "merlo_abcdefabcd.png", color=(20, 20, 90))
+    bottle_png(tmp_path / "site_photo.png")                       # a photo from outside the dump
+    rows = [row("m1", "merlo.webp"), row("m2", "merlo.webp"), row("gone", "missing.webp")]
+    files = [tmp_path / "merlo_0123456789.png", tmp_path / "merlo_abcdefabcd.png"]
+    overrides = {"m1": tmp_path / "merlo_abcdefabcd.png", "gone": tmp_path / "site_photo.png"}
+    wines, excl = build_catalog(rows, files, overrides)
+    by = {w["slug"]: w for w in wines}
+    assert by["m1"]["src_file"].name == "merlo_abcdefabcd.png" and by["m1"]["mapping"] == "manual"
+    assert by["gone"]["src_file"].name == "site_photo.png" and by["gone"]["mapping"] == "manual"
+    assert by["m2"]["mapping"] != "manual"                        # no override: automatic rules as before
+    assert "gone" not in {e["slug"] for e in excl}
