@@ -24,7 +24,7 @@ from tqdm import tqdm
 sys.path.insert(0, str(Path(__file__).parent))
 from evaluate import combine_views  # noqa: E402  (same scoring as the service)
 
-from wine_ml.config import DEVICE, MODEL_NAME, OCR_ALPHA, OCR_BETA, make_ocr_engine  # noqa: E402
+from wine_ml.config import DEVICE, MODEL_NAME, OCR_ALPHA, OCR_BETA, OCR_GAMMA, make_ocr_engine  # noqa: E402
 from wine_ml.db import connect, fetch_embeddings  # noqa: E402
 from wine_ml.embedder import Embedder  # noqa: E402
 from wine_ml.preprocess import normalize_image  # noqa: E402
@@ -59,7 +59,7 @@ def main() -> None:
         order = np.argsort(-scores)[: args.k]
         cands = [{"slug": slugs[j], "visual": float(scores[j]),
                   **{f: wines[slugs[j]].get(f) for f in ("name", "winery", "grapes", "category")}} for j in order]
-        ranked = rerank(ocr, cands, OCR_ALPHA, OCR_BETA)
+        ranked = rerank(ocr, cands, OCR_ALPHA, OCR_BETA, OCR_GAMMA)
         items.append({
             "photo": p.name,
             "ocr": " · ".join(o["text"] for o in ocr if o["conf"] > 0.4)[:300],

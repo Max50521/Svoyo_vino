@@ -30,6 +30,7 @@ _TRANSLIT = dict(zip(
 ))
 
 FUZZY_MIN = 0.8        # normalized Levenshtein similarity for a token match
+GROUP_FUZZY_MIN = 0.7  # colour/sugar words are long and few: one more OCR typo is tolerated ("траское")
 CENTER_SIGMA_X = 0.2   # OCR token weight falls off with horizontal distance from the centre
 CENTER_SIGMA_Y = 0.35
 
@@ -85,11 +86,21 @@ def fuzzy_sim(a: str, b: str) -> float:
     return 1 - _lev(a, b) / max(len(a), len(b))
 
 
+@lru_cache(maxsize=65536)
+def _group_sim(a: str, b: str) -> float:
+    """Similarity for colour/sugar words: tolerant to one more typo than fuzzy_sim."""
+    if a == b:
+        return 1.0
+    if not a or not b or abs(len(a) - len(b)) > 2:
+        return 0.0
+    return 1 - _lev(a, b) / max(len(a), len(b))
+
+
 def _group_values(toks: list[str]) -> dict[str, set[str]]:
     found: dict[str, set[str]] = {}
     for group, values in GROUPS.items():
         for value, words in values.items():
-            if any(fuzzy_sim(t, w) >= FUZZY_MIN for t in toks for w in words):
+            if any(_group_sim(t, w) >= GROUP_FUZZY_MIN for t in toks for w in words):
                 found.setdefault(group, set()).add(value)
     years = {t for t in toks if YEAR_RE.match(t)}
     if years:
@@ -172,8 +183,31 @@ def candidate_attr_tokens(c: dict) -> list[str]:
     return label_tokens(c.get("name")) + label_tokens(c.get("category")) + label_tokens((c.get("slug") or "").replace("-", " "))
 
 
-def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -> list[dict]:
-    """Candidates (dicts with 'visual' score) -> copies with 'text', 'conflicts', 'final', sorted by final."""
+def series_evidence(names: list[list[str]], wineries: list[str], titles: list[set[str]],
+                    ev: dict[str, tuple[float, int]]) -> list[float]:
+    """Within one winery's candidates, how strongly the label confirms the words that only this wine has.
+
+    Labels of one series share most words ("Velvet Season", "Новый Свет"), which then outweigh the one
+    word that tells the wines apart (the grape, "шампанское выдержанное", "Red"). Rivals of a candidate:
+    the other candidates of the same winery whose wine name shares a word with its own (same series).
+    For each candidate: the best OCR evidence among its tokens that none of its rivals has; 0 when it
+    has no rivals in the list or none of its distinguishing words was read."""
+    out = []
+    for i, toks in enumerate(names):
+        rivals = [set(n) for j, n in enumerate(names)
+                  if j != i and wineries[j] and wineries[j] == wineries[i] and titles[i] & titles[j]]
+        if not rivals:
+            out.append(0.0)
+            continue
+        own = set(toks) - set().union(*rivals)
+        out.append(max((ev[t][0] for t in own if t in ev), default=0.0))
+    return out
+
+
+def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float, gamma: float = 0.0) -> list[dict]:
+    """Candidates (dicts with 'visual' score) -> copies with 'text', 'conflicts', 'series', 'final', sorted by final.
+
+    final = visual + alpha * text - beta * conflicts + gamma * series (see series_evidence)."""
     ocr_toks = _ocr_weighted_tokens(ocr)
     names = [candidate_name_tokens(c) for c in candidates]
     k = len(candidates)
@@ -202,8 +236,11 @@ def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -
     info_total = sum(informative.values())
 
     ocr_plain = [t for t, w in ocr_toks if w >= .35]
+    wineries = [' '.join(label_tokens(c.get('winery'))) for c in candidates]
+    titles = [{t for t in label_tokens(c.get('name')) if len(t) >= 3 and t not in STOP_WORDS} for c in candidates]
+    series = series_evidence(names, wineries, titles, ev) if gamma else [0.0] * k
     out = []
-    for c, toks in zip(candidates, names):
+    for c, toks, ser in zip(candidates, names, series):
         total = sum(idf[t] for t in toks)
         matched = sum(idf[t] * ev[t][0] for t in toks)
         recall = matched / total if total else 0.0
@@ -213,6 +250,6 @@ def rerank(ocr: list[dict], candidates: list[dict], alpha: float, beta: float) -
         # explaining the visible words over rewarding the shortest product name.
         text = 1.25 * recall * precision / (.25 * precision + recall) if recall + precision else 0.0
         n_conf = conflicts(ocr_plain, candidate_attr_tokens(c)) if ocr_plain else 0
-        out.append({**c, "text": round(text, 4), "conflicts": n_conf,
-                    "final": round(c["visual"] + alpha * text - beta * n_conf, 4)})
+        out.append({**c, "text": round(text, 4), "conflicts": n_conf, "series": round(ser, 4),
+                    "final": round(c["visual"] + alpha * text - beta * n_conf + gamma * ser, 4)})
     return sorted(out, key=lambda c: c["final"], reverse=True)

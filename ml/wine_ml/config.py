@@ -19,10 +19,12 @@ def resolve_device(device: str = DEVICE) -> str:
 
     return "cuda" if torch.cuda.is_available() else "cpu"
 
-# OCR re-ranking (see wine_ml/text_match.py): final = visual + alpha * text_f1 - beta * conflicts
+# OCR re-ranking (see wine_ml/text_match.py):
+# final = visual + alpha * text_f1 - beta * conflicts + gamma * series (words that tell a series apart)
 OCR_ENABLED = os.getenv("OCR_ENABLED", "1") not in ("0", "false", "no")
 OCR_ALPHA = float(os.getenv("OCR_ALPHA", "0.1"))
 OCR_BETA = float(os.getenv("OCR_BETA", "0.05"))
+OCR_GAMMA = float(os.getenv("OCR_GAMMA", "0.05"))
 
 # OCR provider: easyocr (local, default) | yandex (Yandex Vision OCR, cloud)
 OCR_PROVIDER = os.getenv("OCR_PROVIDER", "easyocr").lower()

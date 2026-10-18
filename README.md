@@ -161,7 +161,7 @@ bash scripts/start-linux.sh
 | `LABEL_WEIGHT` | `0.5` | web | скор вина = (1 − w) · бутылка + w · лучшая зона этикетки |
 | `OCR_ENABLED` | `1` | web, ml | переранжирование по тексту этикетки (`0` — только изображение) |
 | `RERANK_K` | `10` | web | сколько визуальных кандидатов переранжировать |
-| `OCR_ALPHA` / `OCR_BETA` | `0.1` / `0.05` | ml | final = visual + α · совпадение текста − β · противоречия |
+| `OCR_ALPHA` / `OCR_BETA` / `OCR_GAMMA` | `0.1` / `0.05` / `0.05` | ml | final = visual + α · совпадение текста − β · противоречия + γ · отличие внутри серии (прочитано слово, которого нет у вина той же серии, например сорт) |
 | `OCR_PROVIDER` | `easyocr` | ml | `easyocr` (локально) или `yandex` (Yandex Vision OCR, облако, платно) |
 | `YC_OCR_API_KEY`, `YC_FOLDER_ID` | — | ml | ключ и каталог Yandex Cloud для `OCR_PROVIDER=yandex` |
 | `OCR_TIMEOUT_S` | `3` | ml | OCR не успел — ответ только по изображению |

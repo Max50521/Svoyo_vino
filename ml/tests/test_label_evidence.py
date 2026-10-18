@@ -46,3 +46,27 @@ def test_raster_resolution_accepts_small_compression_noise_at_full_size(tmp_path
     Image.new('RGBA',(100,300),(80,60,40,255)).save(pa)
     Image.new('RGBA',(100,300),(81,61,41,255)).save(pb)
     assert resolve_file([pa,pb])==(pa,'equivalent_reencode')
+
+def test_colour_word_read_with_a_typo_still_contradicts():
+    # "траское" is how OCR read "красное" on a real shelf photo
+    cs=[candidate('white','Поздний сбор, Белое'),candidate('red','Поздний сбор, Красное')]
+    ocr=[dict(text='ПОЗДНИЙ СБОР',conf=.9,cx=.5,cy=.5),dict(text='траское',conf=.5,cx=.5,cy=.5)]
+    out={c['slug']:c for c in rerank(ocr,cs,.1,.05)}
+    assert out['white']['conflicts']==1 and out['red']['conflicts']==0
+
+def test_distinguishing_word_decides_within_a_series():
+    # same name, same winery; the grape is the only difference and outweighs a small visual lead
+    cs=[candidate('riesling','Velvet Season',visual=.68),candidate('muscat','Velvet Season',visual=.653),
+        candidate('icewine','Ледяное вино Мускат',visual=.64)]
+    for c,g in zip(cs,('Рислинг','Мускат Оттонель','Мускат Оттонель')):c['grapes']=g
+    ocr=[dict(text='VELVET',conf=.99,cx=.5,cy=.5),dict(text='SEA SON',conf=.97,cx=.5,cy=.5),
+         dict(text='MUS CAT',conf=.7,cx=.5,cy=.5)]
+    assert rerank(ocr,cs,.1,.05,gamma=0)[0]['slug']=='riesling'
+    out=rerank(ocr,cs,.1,.05,gamma=.05)
+    assert out[0]['slug']=='muscat'
+    assert next(c for c in out if c['slug']=='icewine')['series']==0   # other series of the winery: no bonus
+
+def test_series_bonus_needs_a_rival_of_the_same_series():
+    cs=[candidate('a','Мерло',visual=.8),candidate('b','Каберне',visual=.79)]
+    out=rerank([dict(text='МЕРЛО',conf=.99,cx=.5,cy=.5)],cs,.1,.05,gamma=.05)
+    assert all(c['series']==0 for c in out)

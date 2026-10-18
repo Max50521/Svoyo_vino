@@ -33,6 +33,7 @@ services:
       EASYOCR_MODULE_PATH: /app/data/easyocr
       OCR_ALPHA: ${OCR_ALPHA:-0.1}
       OCR_BETA: ${OCR_BETA:-0.05}
+      OCR_GAMMA: ${OCR_GAMMA:-0.05}
       YC_OCR_API_KEY: ${YC_OCR_API_KEY:-}
       YC_FOLDER_ID: ${YC_FOLDER_ID:-}
     ports:
