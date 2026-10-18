@@ -14,35 +14,29 @@ const showMap = computed(() => props.passport.families.length >= 2 || props.pass
 </script>
 
 <template>
-  <section class="tp" aria-labelledby="tp-title">
+  <!-- nothing found in the description: no empty section at all -->
+  <section v-if="hasScales || hasNotes" class="tp" aria-labelledby="tp-title">
     <h2 id="tp-title" class="section-title">Паспорт вкуса</h2>
+    <p v-if="passport.summary" class="tp__summary">{{ passport.summary }}</p>
 
-    <p v-if="!hasScales && !hasNotes" class="tp__empty">
-      В описании этого вина нет явных вкусовых характеристик.
-    </p>
-    <template v-else>
-      <p v-if="passport.summary" class="tp__summary">{{ passport.summary }}</p>
+    <div v-if="hasScales" class="tp__block">
+      <h3 class="tp__h serif">Какое оно на вкус</h3>
+      <ul class="tp__scales">
+        <TasteScale
+          v-for="s in scales" :key="s.id" :scale="s" :open="help === s.id"
+          @toggle="help = help === s.id ? null : s.id"
+        />
+      </ul>
+    </div>
 
-      <div class="tp__block">
-        <h3 class="tp__h serif">Какое оно на вкус</h3>
-        <p v-if="!hasScales" class="tp__none">Сладость, кислотность, танины и тело в описании не уточнены.</p>
-        <ul v-else class="tp__scales">
-          <TasteScale
-            v-for="s in scales" :key="s.id" :scale="s" :open="help === s.id"
-            @toggle="help = help === s.id ? null : s.id"
-          />
-        </ul>
-      </div>
+    <div v-if="hasNotes" class="tp__block">
+      <h3 class="tp__h serif">Ароматы и вкусовые ноты</h3>
+      <AromaNotes :notes="passport.notes" />
+      <p class="tp__caption">Ассоциации из описания вина, а не добавленные ингредиенты</p>
+      <AromaMap v-if="showMap" :families="passport.families" :notes="passport.notes" :wine-name="wineName" />
+    </div>
 
-      <div v-if="hasNotes" class="tp__block">
-        <h3 class="tp__h serif">Ароматы и вкусовые ноты</h3>
-        <AromaNotes :notes="passport.notes" />
-        <p class="tp__caption">Ассоциации из описания вина, а не добавленные ингредиенты</p>
-        <AromaMap v-if="showMap" :families="passport.families" :notes="passport.notes" :wine-name="wineName" />
-      </div>
-
-      <TasteEvidence :passport="passport" />
-    </template>
+    <TasteEvidence :passport="passport" />
   </section>
 </template>
 
@@ -54,5 +48,4 @@ const showMap = computed(() => props.passport.families.length >= 2 || props.pass
 .tp__h { font-size: 19px; margin: 0 0 6px; }
 .tp__scales { list-style: none; margin: 0; padding: 0; }
 .tp__caption { margin: 10px 0 0; font-size: 13px; color: var(--text-muted); }
-.tp__empty, .tp__none { color: var(--text-muted); margin: 0; font-size: 14px; line-height: 1.5; }
 </style>

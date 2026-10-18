@@ -123,11 +123,7 @@ const sectors = computed(() => {
         </ul>
 
         <!-- card under the wheel (wide screens) or under the list (phones) -->
-        <div
-          :id="`${id}-panel`" class="panel" :class="{ 'panel--on': current }"
-          role="region" :aria-label="current ? current.label : 'Подробности о группе ароматов'" aria-live="polite"
-        >
-          <template v-if="current">
+        <div v-if="current" :id="`${id}-panel`" class="panel" role="region" :aria-label="current.label" aria-live="polite">
             <div class="panel__head">
               <span class="panel__title serif" :style="{ color: `var(--fam-${current.id})` }">{{ current.label }}</span>
               <button v-if="selected" type="button" class="panel__close" @click="close">Закрыть</button>
@@ -143,8 +139,6 @@ const sectors = computed(() => {
                 </div>
               </li>
             </ul>
-          </template>
-          <p v-else class="panel__hint">Наведите на группу ароматов или нажмите на неё — здесь появятся ноты и фразы из описания, на которых они основаны.</p>
         </div>
       </div>
     </div>
@@ -185,10 +179,9 @@ const sectors = computed(() => {
 
 .panel {
   padding: 14px 16px; background: var(--surface); border: 1px solid var(--sand); border-radius: var(--radius-s);
-  transition: box-shadow .25s, transform .25s;
+  box-shadow: 0 10px 30px rgba(80, 40, 40, .1); animation: panel-in .25s ease-out;
 }
-.panel--on { box-shadow: 0 10px 30px rgba(80, 40, 40, .1); }
-.panel:not(.panel--on) { display: none; }
+@keyframes panel-in { from { opacity: 0; transform: translateY(6px); } }
 .panel__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .panel__title { font-size: 19px; }
 .panel__close { min-height: 44px; padding: 0 12px; background: none; border: 1px solid var(--line); border-radius: 999px; color: var(--text); cursor: pointer; }
@@ -197,17 +190,14 @@ const sectors = computed(() => {
 .panel__notes p { margin: 2px 0 0; font-size: 14px; }
 .panel__disc { width: 44px; height: 44px; flex: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--fam) 12%, transparent); }
 .panel__generic { color: var(--text-muted); font-size: 13px; }
-.panel__hint { margin: 0; font-size: 14px; color: var(--text-muted); }
 
 @media (min-width: 720px) {
-  /* the card column is ~650px wide: the wheel takes the full width, the card sits right under it
-     and keeps its height while empty, so hovering never shifts the page */
+  /* the card column is ~650px wide: the wheel takes the full width, the card appears right under it */
   .map__wheel { display: block; }
   .map__list { display: none; }
-  .panel, .panel:not(.panel--on) { display: block; min-height: 132px; }
-  .panel:not(.panel--on) { display: flex; align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sector, .sector path, .panel { transition: none; }
+  .sector, .sector path { transition: none; }
+  .panel { animation: none; }
 }
 </style>
