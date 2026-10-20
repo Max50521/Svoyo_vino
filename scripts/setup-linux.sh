@@ -23,6 +23,9 @@ docker compose up -d --wait db
 "$py" scripts/fetch_site_photos.py || echo "site photos not downloaded: those wines stay excluded"
 "$py" ml/scripts/build_catalog.py
 "$py" ml/scripts/load_catalog.py
+excluded=$(( $(wc -l < data/catalog/excluded.csv) - 1 ))   # wines left out of the index
+(( excluded > 0 )) && echo "WARNING: $excluded catalog wines are not indexed, see data/catalog/excluded.csv"
 "$py" ml/scripts/build_index.py --batch 4
 (cd web && npm ci && npm run typecheck && npm test && npm run build)
+(( excluded > 0 )) && echo "Setup finished, but $excluded wines are NOT in the index: check the internet and re-run this script"
 echo 'Setup complete. Run: bash scripts/start-linux.sh'

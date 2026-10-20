@@ -125,6 +125,8 @@ if ($LASTEXITCODE -ne 0) { Write-Host "site photos not downloaded: those wines s
 Step "Catalog: unambiguous positions"
 & $py ml\scripts\build_catalog.py; Check
 & $py ml\scripts\load_catalog.py; Check
+$excluded = @(Import-Csv data\catalog\excluded.csv).Count   # wines left out of the index (e.g. site photos not downloaded)
+if ($excluded) { Write-Host "WARNING: $excluded catalog wines are not indexed, see data\catalog\excluded.csv" -ForegroundColor Red }
 
 Step "Index: SigLIP 2 embeddings -> pgvector (first run downloads the model, ~4.5 GB)"
 & $py ml\scripts\build_index.py --batch 8; Check   # views: full + label_mid + label_low; already indexed wines are skipped
@@ -134,4 +136,8 @@ Step "OCR models (EasyOCR ru+en, ~100 MB) - downloaded now so the demo works off
 & $py -c "from wine_ml.ocr import OcrEngine; OcrEngine('cpu')"; Check
 
 $start = if ($PortableDb) { '.\scripts\start-local.ps1 -PortableDb' } else { '.\scripts\start-local.ps1' }
+if ($excluded) {
+  Write-Host "`nDone, but $excluded of the catalog wines are NOT in the index (data\catalog\excluded.csv)." -ForegroundColor Red
+  Write-Host "Usually the vino-svoe.ru photos did not download: check the internet and re-run .\scripts\setup.ps1 (safe, only the missing part is redone)." -ForegroundColor Red
+}
 Write-Host "`nDone. Start the service: $start   ->  http://127.0.0.1:8080" -ForegroundColor Green
