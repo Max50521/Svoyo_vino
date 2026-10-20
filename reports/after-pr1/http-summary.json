@@ -1,0 +1,76 @@
+{
+  "tag": "after-pr1",
+  "label_provenance": "repository labels; not independently verified organizer ground truth",
+  "readiness": {
+    "ready": true,
+    "status": "ok",
+    "engine": "vector",
+    "model": "google/siglip2-so400m-patch14-384",
+    "db": {
+      "ok": true,
+      "wines": 2103,
+      "indexed": 2103,
+      "full": 2103,
+      "label_mid": 2103,
+      "label_low": 2103,
+      "min_dim": 1152,
+      "max_dim": 1152
+    },
+    "ml": {
+      "status": "ok",
+      "model": "google/siglip2-so400m-patch14-384",
+      "device": "cuda",
+      "dim": 1152,
+      "ocr": "easyocr",
+      "ocr_error": null,
+      "ok": true
+    }
+  },
+  "n": 100,
+  "http": {
+    "200": 100
+  },
+  "known_all": {
+    "n": 64,
+    "top1": 62,
+    "top5": 64,
+    "top1_pct": 96.88,
+    "top5_pct": 100.0
+  },
+  "known_indexed": {
+    "n": 64,
+    "top1": 62,
+    "top5": 64,
+    "top1_pct": 96.88,
+    "top5_pct": 100.0
+  },
+  "ambiguous_excluded": 3,
+  "unknown": {
+    "n": 33,
+    "correct_not_found": 19
+  },
+  "known_false_not_found": 5,
+  "confident_known": {
+    "n": 36,
+    "top1": 35,
+    "top5": 36,
+    "top1_pct": 97.22,
+    "top5_pct": 100.0
+  },
+  "correct_ui_decisions": 76,
+  "ui_decision_n": 97,
+  "status": {
+    "not_found": 25,
+    "uncertain": 38,
+    "confident": 37
+  },
+  "ocr_fallback": {
+    "None": 100
+  },
+  "latency_ms": {
+    "p50": 680.15,
+    "p95": 960.2,
+    "max": 1075.6,
+    "mean": 718.5
+  }
+}

@@ -1,6 +1,6 @@
 # Сканер вина — проверенный локальный запуск
 
-Состояние после улучшения Top-1, 28.09.2026: реальный SigLIP 2 + EasyOCR, PostgreSQL/pgvector, 2080 карточек и 6240 векторов. Top-1 59/64 (92,19%), Top-5 64/64. Новые функции кислотности и иллюстраций вкуса не добавлены. Свежие доказательства — `reports/recognition`, прежний исходный прогон — `reports/verification/ocr-rows.json`.
+Состояние на 20.10.2026 (после PR #1): реальный SigLIP 2 + EasyOCR, PostgreSQL/pgvector (PGlite), 2103 карточки и 6309 векторов. Top-1 62/64 (96,88%), Top-5 64/64. Свежие доказательства — `reports/after-pr1`, разбор — [TOP1_ACCEPTANCE.md](TOP1_ACCEPTANCE.md). Ниже сохранена история запуска 28.09.2026 (2080 карточек, Top-1 59/64).
 
 ## Windows без Docker — проверено с нуля 28.09.2026
 
@@ -58,6 +58,15 @@ ml/.venv/Scripts/python scripts/verify_load.py
 Официальный скрипт: из `eval` запустить `bash participant_test.sh --images-dir ./queries --manifest ./queries.tsv --endpoint http://127.0.0.1:8080/v1/eval/predict --output predictions-new.jsonl`; нужны bash, curl, jq, awk. Не перезаписывать существующий файл результатов.
 
 ## Контрольные результаты
+
+**20.10.2026, после PR #1** (Windows 11, RTX 4060, повторный `setup.ps1 -PortableDb` поверх прежнего индекса):
+
+- 61 web-тест, 62 Python-теста, typecheck без ошибок; браузерные проверки паспорта вкуса 42/42.
+- `/ready`: 2103 вина, все три вида векторов по 2103.
+- `scripts/verify_http.py`, 100 фото: 100/100 HTTP 200, Top-1 62/64, Top-5 64/64, not_found 19/33, решения интерфейса 76/97, p50 / p95 680 / 960 мс.
+- Официальный скрипт: 100 валидных slug, Top-1 62/64, p50 / p95 688 / 963 мс.
+
+**28.09.2026:**
 
 - 58 Python-тестов и 21 web-тест; production build и Vue/TypeScript без ошибок.
 - 20 проверок живого HTTP-контракта; официальный скрипт — 100/100 ответов JSON со slug, Top-1 59/64.
