@@ -1,7 +1,7 @@
 {
   "base": "http://127.0.0.1:8080",
   "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "date": "2026-09-28T17:40:00.745Z",
+  "date": "2026-10-20T17:39:31.440Z",
   "passed": 42,
   "total": 42,
   "results": [
@@ -178,17 +178,17 @@
     {
       "name": "uncertain scan: warning and candidates shown before the passport",
       "ok": true,
-      "detail": "{\"slug\":\"/wine/denisov_rubin_klaret_krasnaya_strelka\",\"notice\":true,\"alts\":true,\"order\":true}"
+      "detail": "{\"slug\":\"/wine/rubin-golodrigi\",\"notice\":true,\"alts\":true,\"order\":true}"
     },
     {
-      "name": "no scale facts → one compact line, no empty markers",
+      "name": "no scale facts → no taste-scale block, no empty markers",
       "ok": true,
       "detail": ""
     },
     {
       "name": "candidate switch updates the whole passport",
       "ok": true,
-      "detail": "/wine/denisov_rubin_klaret_krasnaya_strelka → /wine/denisov_pino_noir_klaret"
+      "detail": "/wine/rubin-golodrigi → /wine/kaberne-sovinon-2"
     },
     {
       "name": "not_found scan: no card and no passport",

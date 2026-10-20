@@ -22,7 +22,7 @@ mkdirSync(SHOTS, { recursive: true })
 const RICH = 'le-k2-kamenolomnya-sira-krasnoe-suhoe-145'
 const PARTIAL = 'zolotoe-pole-legend-of-crimea-chardonnay-shardone-beloe-suhoe-13'
 const SPARKLING = 'abrau-dyurso-imperatorskoe-bryut-shardone-beloe-12'
-const UNCERTAIN_PHOTO = join(ROOT, 'eval/real/photos/48.98_02-09-2026_18-34-15.webp')
+const UNCERTAIN_PHOTO = join(ROOT, 'eval/real/photos/94.02_24-08-2026_17-46-57.webp')
 const NOT_FOUND_PHOTO = join(ROOT, 'eval/real/photos/1.73_06-09-2026_14-54-06.webp')
 const LABEL_GRAPE_PHOTO = join(ROOT, 'eval/real/photos/95.07_01-09-2026_16-15-35.webp')
 const WIDTHS = [360, 390, 768, 1440]
@@ -205,7 +205,7 @@ await waitFor(`location.pathname.startsWith('/wine/') && document.querySelector(
 await sleep(600)
 const first = await js(`return { slug: location.pathname, notice: !!document.querySelector('.top-notice'), alts: !!document.querySelector('.alts__body'), order: (() => { const a=document.querySelector('.alts'), t=document.querySelector('.tp'); return a && t ? !!(a.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING) : null })(), tp: document.querySelector('.tp')?.innerText ?? '' }`)
 check('uncertain scan: warning and candidates shown before the passport', first.notice && first.alts && first.order !== false, JSON.stringify({ ...first, tp: undefined }))
-check('no scale facts → one compact line, no empty markers', first.tp.includes('в описании не уточнены') && !first.tp.includes('Кислотность'))
+check('no scale facts → no taste-scale block, no empty markers', !first.tp.includes('Какое оно на вкус') && !first.tp.includes('Кислотность'))
 shots.uncertain = await shot('uncertain-390', 'main', '.tp')
 await js(`document.querySelector('.alts__body a').click()`)
 await waitFor(`location.pathname !== ${JSON.stringify(first.slug)}`)
